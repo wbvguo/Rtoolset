@@ -1,0 +1,3 @@
+name: "Basic report"
+description: "Create an RMarkdown file with predefined rendering style."
+create_dir: false
