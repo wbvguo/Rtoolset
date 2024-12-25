@@ -1,0 +1,10 @@
+Package: Rtoolset
+Title: A tool set for R programming and data analysis
+Version: 0.0.0.9000
+Authors@R: 
+    person("Wenbin", "Guo", , "vinkwok@outlook.com", role = c("aut", "cre"))
+Description: Provide miscellous functions and templates.
+License: use_mit_license()
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
