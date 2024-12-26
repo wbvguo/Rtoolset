@@ -1,5 +1,6 @@
-# make directory
-#' Title: make_dir
+#' `mkdir`
+#'
+#' create a directory if it does not exist
 #'
 #' @param dir a character string of directory path
 #'
@@ -7,11 +8,14 @@
 #' @export
 #'
 #' @examples
-#' make_dir("~/test/")
-make_dir = function(dir){
+#' mkdir("~/test/")
+mkdir = function(dir){
   if (! dir.exists(dir)){
     dir.create(dir, recursive = TRUE)
   }else{
     print(paste0(dir, " exists! Skip creating..."))
   }
+  #################### USAGE ####################
+  # mkdir("~/test")
 }
+
