@@ -13,7 +13,7 @@ A tool set for R programming and data analysis
 ## Installation
 
 You can install the development version of Rtoolset from
-[GitHub](https://github.com/) with:
+[GitHub](https://github.com/wbvguo/Rtoolset.git) with:
 
 ``` r
 # install.packages("pak")
