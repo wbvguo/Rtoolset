@@ -22,12 +22,36 @@ pak::pak("wbvguo/Rtoolset")
 
 ## Example
 
-## create a dir when it does not exist
+## Folder & files
+
+### create a dir when it does not exist
 
 ``` r
 library(Rtoolset)
-make_dir("~/test/")
+mkdir("~/test/")
 #> [1] "~/test/ exists! Skip creating..."
+```
+
+### save to pdf
+
+``` r
+save2pdf(file = "./man/figures/save2pdf.pdf", width = 6, height = 6, overwrite = FALSE,
+         plot_code = quote({
+           t = seq(0, 100, 1)
+           plot(cos(t) + t*sin(t), sin(t) - t* cos(t), type = "l", asp = 1)
+         }))
+```
+
+### print
+
+``` r
+print_pval(0.0000123)
+#> [1] "1.23e-05"
+```
+
+``` r
+vec2print(c("apple", "banana"))
+#> c("apple", "banana")
 ```
 
 <!-- ## Legacy -->
