@@ -35,11 +35,13 @@ mkdir("~/test/")
 ### save to pdf
 
 ``` r
-save2pdf(file = "./man/figures/save2pdf.pdf", width = 6, height = 6, overwrite = FALSE,
+save2pdf(file = "./man/figures/save2pdf.pdf", width = 6, height = 6, overwrite = TRUE,
          plot_code = quote({
            t = seq(0, 100, 1)
            plot(cos(t) + t*sin(t), sin(t) - t* cos(t), type = "l", asp = 1)
          }))
+#> png 
+#>   2
 ```
 
 ### print
