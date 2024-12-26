@@ -8,7 +8,7 @@
 [![R-CMD-check](https://github.com/wbvguo/Rtoolset/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wbvguo/Rtoolset/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-A tool set for R programming and data analysis
+A miscellaneous tool set for R programming and data analysis
 
 ## Installation
 
