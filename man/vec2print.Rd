@@ -2,21 +2,25 @@
 % Please edit documentation in R/print.R
 \name{vec2print}
 \alias{vec2print}
-\title{\code{vec2print}}
+\title{print a vector in a copy-paste friendly format}
 \usage{
 vec2print(vec, lang = "R")
 }
 \arguments{
-\item{vec}{the vector to be printed}
+\item{vec}{A vector to be printed.}
 
-\item{lang}{the language ('R', 'shell', 'python') used, default is 'R'}
+\item{lang}{The language to format the vector for. Options are 'R', 'shell', or 'python'. Default is 'R'.}
 }
 \value{
-a string, which can be copy and paste to the code chunk
+A formatted string representation of the vector.
 }
 \description{
-print a vector so that the output can be copy/paste to the code chunk
+Formats a vector into a string representation suitable for direct copy-pasting
+into code chunks in R, shell scripts, or Python.
 }
 \examples{
-vec2print(c("Apple", "Orange"))
+# Example usage of vec2print
+vec2print(c("Apple", "Orange"))  # For R: c("Apple", "Orange")
+vec2print(c("Apple", "Orange"), lang = "shell")  # For Shell: ("Apple" "Orange")
+vec2print(c("Apple", "Orange"), lang = "python")  # For Python: ["Apple", "Orange"]
 }

@@ -1,14 +1,19 @@
-#' `vec2print`
+#' print a vector in a copy-paste friendly format
 #'
-#' print a vector so that the output can be copy/paste to the code chunk
+#' Formats a vector into a string representation suitable for direct copy-pasting
+#' into code chunks in R, shell scripts, or Python.
 #'
-#' @param vec the vector to be printed
-#' @param lang the language ('R', 'shell', 'python') used, default is 'R'
+#' @param vec A vector to be printed.
+#' @param lang The language to format the vector for. Options are 'R', 'shell', or 'python'. Default is 'R'.
 #'
-#' @return a string, which can be copy and paste to the code chunk
+#' @return A formatted string representation of the vector.
 #' @export
 #'
-#' @examples vec2print(c("Apple", "Orange"))
+#' @examples
+#' # Example usage of vec2print
+#' vec2print(c("Apple", "Orange"))  # For R: c("Apple", "Orange")
+#' vec2print(c("Apple", "Orange"), lang = "shell")  # For Shell: ("Apple" "Orange")
+#' vec2print(c("Apple", "Orange"), lang = "python")  # For Python: ["Apple", "Orange"]
 vec2print = function(vec, lang="R"){
   # print a vector so that the output can be copy/paste to the code chunk
   # :param vec: vector
@@ -33,18 +38,23 @@ vec2print = function(vec, lang="R"){
 }
 
 
-#' `print_pval`
-#'
 #' print p-values in a more readable format
 #'
-#' @param pvalues a numeric vector of p-values
-#' @param threshold threshold below which p-values are printed in scientific notation, default is 1e-4
-#' @param rm_tailing0 remove tailing 0 in the decimal, default is TRUE
+#' Formats a numeric vector of p-values into a more readable string. P-values below a
+#' threshold are displayed in scientific notation. Optionally, trailing zeros in
+#' the decimal representation can be removed.
 #'
-#' @return a string of p-values
+#' @param pvalues A numeric vector of p-values to be formatted.
+#' @param threshold The threshold below which p-values are printed in scientific notation. Default is 1e-4.
+#' @param rm_tailing0 Logical. If TRUE, trailing zeros in the decimal representation are removed. Default is TRUE.
+#'
+#' @return A character vector of formatted p-values.
 #' @export
 #'
-#' @examples print_pval(0.0101)
+#' @examples
+#' # Example usage of print_pval
+#' print_pval(c(0.0101, 0.00003, 0.00000001))
+#' print_pval(c(0.0101, 0.00003, 0.00000001), threshold = 1e-3, rm_tailing0 = FALSE)
 print_pval <- function(pvalues, threshold = 1e-4, rm_tailing0 = TRUE) {
   p_str <- sapply(pvalues, function(pvalue) {
     if(pvalue < 2.2e-16){
