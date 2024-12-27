@@ -2,23 +2,27 @@
 % Please edit documentation in R/print.R
 \name{print_pval}
 \alias{print_pval}
-\title{\code{print_pval}}
+\title{print p-values in a more readable format}
 \usage{
 print_pval(pvalues, threshold = 1e-04, rm_tailing0 = TRUE)
 }
 \arguments{
-\item{pvalues}{a numeric vector of p-values}
+\item{pvalues}{A numeric vector of p-values to be formatted.}
 
-\item{threshold}{threshold below which p-values are printed in scientific notation, default is 1e-4}
+\item{threshold}{The threshold below which p-values are printed in scientific notation. Default is 1e-4.}
 
-\item{rm_tailing0}{remove tailing 0 in the decimal, default is TRUE}
+\item{rm_tailing0}{Logical. If TRUE, trailing zeros in the decimal representation are removed. Default is TRUE.}
 }
 \value{
-a string of p-values
+A character vector of formatted p-values.
 }
 \description{
-print p-values in a more readable format
+Formats a numeric vector of p-values into a more readable string. P-values below a
+threshold are displayed in scientific notation. Optionally, trailing zeros in
+the decimal representation can be removed.
 }
 \examples{
-print_pval(0.0101)
+# Example usage of print_pval
+print_pval(c(0.0101, 0.00003, 0.00000001))
+print_pval(c(0.0101, 0.00003, 0.00000001), threshold = 1e-3, rm_tailing0 = FALSE)
 }

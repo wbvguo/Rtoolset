@@ -2,31 +2,32 @@
 % Please edit documentation in R/save.R
 \name{save2pdf}
 \alias{save2pdf}
-\title{\code{save2pdf}}
+\title{save a plot to a PDF file}
 \usage{
 save2pdf(file = NA, plot_code = NA, overwrite = FALSE, append = TRUE, ...)
 }
 \arguments{
-\item{file}{a character string of the file path}
+\item{file}{A character string specifying the file path for the PDF.}
 
-\item{plot_code}{a language object of the plot code, usually use \code{quote} to wrap the code}
+\item{plot_code}{A language object representing the plot code to be executed. Typically, use \code{quote} to wrap the plot code.}
 
-\item{overwrite}{a logical value, whether to overwrite the existing file, default is FALSE}
+\item{overwrite}{Logical. If \code{TRUE}, overwrites the existing file. Default is \code{FALSE}.}
 
-\item{append}{a logical value, whether to append the new plot to the existing file, default is TRUE}
+\item{append}{Logical. If \code{TRUE}, appends the new plot to the existing file by combining the old and new PDFs. Default is \code{TRUE}.}
 
-\item{...}{other parameters passed to \code{pdf}}
+\item{...}{Additional arguments passed to the \code{pdf} function, such as \code{width} or \code{height}.}
 }
 \value{
-a pdf file
+A PDF file is created at the specified location.
 }
 \description{
-save a plot to a pdf file
+This function saves a plot to a PDF file. It can create a new PDF or append the plot to an existing file. If the file already exists and \code{overwrite} is set to \code{FALSE}, a new uniquely named file is created.
 }
 \examples{
+# Save a simple plot to a PDF
 save2pdf(file = "mytest_plot.pdf", width = 4, height = 4, overwrite = FALSE,
-                   plot_code = quote({
-                     t = seq(0, 100, 1)
-                     plot(cos(t) + t*sin(t), sin(t) - t* cos(t), type = "l")
-                   }))
+         plot_code = quote({
+           t = seq(0, 100, 1)
+           plot(cos(t) + t*sin(t), sin(t) - t*cos(t), type = "l")
+         }))
 }

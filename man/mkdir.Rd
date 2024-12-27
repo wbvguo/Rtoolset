@@ -2,18 +2,18 @@
 % Please edit documentation in R/dir.R
 \name{mkdir}
 \alias{mkdir}
-\title{\code{mkdir}}
+\title{create a directory if it does not exist}
 \usage{
 mkdir(dir)
 }
 \arguments{
-\item{dir}{a character string of directory path}
+\item{dir}{A character string specifying the path of the directory to be checked and created if necessary.}
 }
 \value{
-a directory created if it does not exist
+The specified directory path, with the directory created if it did not exist.
 }
 \description{
-create a directory if it does not exist
+This function checks whether a directory exists at the specified path. If the directory does not exist, it is created.
 }
 \examples{
 mkdir("~/test/")
