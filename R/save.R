@@ -54,6 +54,9 @@ save2pdf = function(file=NA, plot_code=NA, overwrite=FALSE, append=TRUE, ...){
   }
 
   #################### USAGE ####################
+  ## plot code is the involute of a circle: the path traced out
+  ## by a point on a straight line that rolls around a circle
+  ## https://www.matematica.pt/en/useful/list-curves.php
   # save2pdf(file = "mytest_plot.pdf", width = 6, height = 6, overwrite = FALSE,
   #          plot_code = quote({
   #            t = seq(0, 100, 1)
