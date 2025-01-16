@@ -19,7 +19,6 @@ Formats a vector into a string representation suitable for direct copy-pasting
 into code chunks in R, shell scripts, or Python.
 }
 \examples{
-# Example usage of vec2print
 vec2print(c("Apple", "Orange"))  # For R: c("Apple", "Orange")
 vec2print(c("Apple", "Orange"), lang = "shell")  # For Shell: ("Apple" "Orange")
 vec2print(c("Apple", "Orange"), lang = "python")  # For Python: ["Apple", "Orange"]

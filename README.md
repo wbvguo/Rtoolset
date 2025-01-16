@@ -20,11 +20,11 @@ You can install the development version of Rtoolset from
 pak::pak("wbvguo/Rtoolset")
 ```
 
-## Example
+## Example usage
 
-## Folder & files
+### folder & files
 
-### create a dir when it does not exist
+#### create a dir when it does not exist
 
 ``` r
 library(Rtoolset)
@@ -32,7 +32,7 @@ mkdir("~/test/")
 #> [1] "~/test/ exists! Skip creating..."
 ```
 
-### save to pdf
+#### save to pdf
 
 ``` r
 save2pdf(file = "./man/figures/save2pdf.pdf", width = 6, height = 6, overwrite = TRUE,
@@ -54,6 +54,17 @@ print_pval(0.0000123)
 ``` r
 vec2print(c("apple", "banana"))
 #> c("apple", "banana")
+```
+
+### match
+
+``` r
+closestMatch("DFNB31", c("DNMT1", "DTNBP1", "IFNB1"))
+#> [[1]]
+#> [1] "DTNBP1" "IFNB1" 
+#> 
+#> [[2]]
+#> [1] 2 3
 ```
 
 ### more

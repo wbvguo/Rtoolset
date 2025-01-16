@@ -52,7 +52,6 @@ save2pdf = function(file=NA, plot_code=NA, overwrite=FALSE, append=TRUE, ...){
       unlink(new_file)
     }
   }
-
   #################### USAGE ####################
   ## plot code is the involute of a circle: the path traced out
   ## by a point on a straight line that rolls around a circle
@@ -63,6 +62,4 @@ save2pdf = function(file=NA, plot_code=NA, overwrite=FALSE, append=TRUE, ...){
   #            plot(cos(t) + t*sin(t), sin(t) - t* cos(t), type = "l", asp = 1)
   #          }))
 }
-
-
 

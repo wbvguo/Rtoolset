@@ -26,7 +26,6 @@ extract_params = function(func) {
       assign(arg_name, eval(formals_list[[arg_name]], envir = .GlobalEnv), envir = .GlobalEnv)
     }
   }
-
   #################### USAGE ####################
   # rejection_sampler <- function(D, n_trails = 10000, seed = 2024) {}
   #

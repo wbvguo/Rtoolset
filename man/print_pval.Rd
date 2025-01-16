@@ -22,7 +22,8 @@ threshold are displayed in scientific notation. Optionally, trailing zeros in
 the decimal representation can be removed.
 }
 \examples{
-# Example usage of print_pval
 print_pval(c(0.0101, 0.00003, 0.00000001))
+#[1] "0.0101"   "3.00e-05" "1.00e-08"
 print_pval(c(0.0101, 0.00003, 0.00000001), threshold = 1e-3, rm_tailing0 = FALSE)
+#[1] "0.0101"   "3.00e-05" "1.00e-08"
 }
