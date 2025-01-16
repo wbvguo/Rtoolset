@@ -56,6 +56,10 @@ vec2print(c("apple", "banana"))
 #> c("apple", "banana")
 ```
 
+### more
+
+under construction…
+
 <!-- ## Legacy -->
 <!-- What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so: -->
 <!-- ```{r cars} -->
