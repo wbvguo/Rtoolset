@@ -10,7 +10,6 @@
 #' @export
 #'
 #' @examples
-#' # Example usage of vec2print
 #' vec2print(c("Apple", "Orange"))  # For R: c("Apple", "Orange")
 #' vec2print(c("Apple", "Orange"), lang = "shell")  # For Shell: ("Apple" "Orange")
 #' vec2print(c("Apple", "Orange"), lang = "python")  # For Python: ["Apple", "Orange"]
@@ -29,7 +28,6 @@ vec2print = function(vec, lang="R"){
   }else{
     stop("language not supported yet...")
   }
-
   #################### USAGE ####################
   # vec2print(c("Apple", "Orange"))
   # R > c("Apple", "Orange")
@@ -52,9 +50,10 @@ vec2print = function(vec, lang="R"){
 #' @export
 #'
 #' @examples
-#' # Example usage of print_pval
 #' print_pval(c(0.0101, 0.00003, 0.00000001))
+#' #[1] "0.0101"   "3.00e-05" "1.00e-08"
 #' print_pval(c(0.0101, 0.00003, 0.00000001), threshold = 1e-3, rm_tailing0 = FALSE)
+#' #[1] "0.0101"   "3.00e-05" "1.00e-08"
 print_pval <- function(pvalues, threshold = 1e-4, rm_tailing0 = TRUE) {
   p_str <- sapply(pvalues, function(pvalue) {
     if(pvalue < 2.2e-16){
@@ -78,12 +77,7 @@ print_pval <- function(pvalues, threshold = 1e-4, rm_tailing0 = TRUE) {
       return(p_str_temp)
     }
   })
-
   return(p_str)
-
-
   #################### USAGE ####################
   # print_pval(0.0101)
 }
-
-
