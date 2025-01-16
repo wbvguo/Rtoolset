@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Rtoolset
+# Rtoolset <a href="https://github.com/wbvguo/Rtoolset/"><img src="man/figures/Rtoolset.png" align="right" height="138" alt="ggplot2 website" /></a>
 
 <!-- badges: start -->
 
