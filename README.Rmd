@@ -32,7 +32,7 @@ pak::pak("wbvguo/Rtoolset")
 ```
 
 ## Usage
-check out the [vignette](https://htmlpreview.github.io/?https://wbvguo.github.io/Rtoolset/vignettes/misc.html) page:
+check out the [vignette](https://htmlpreview.github.io/?https://github.com/wbvguo/Rtoolset/blob/main/vignettes/misc.html) page:
 <!-- 1. [Rtoolset]() -->
 <!-- 2. [RNAseq](https://wbvguo.github.io/Rtoolset/articles/RNAseq.html) -->
 <!-- 3. [Methylation](https://wbvguo.github.io/Rtoolset/articles/Methylation.html) -->
