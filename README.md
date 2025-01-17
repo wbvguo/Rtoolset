@@ -20,52 +20,39 @@ You can install the development version of Rtoolset from
 pak::pak("wbvguo/Rtoolset")
 ```
 
-## Example usage
+## Usage
 
-### folder & files
+check out the
+[vignette](https://htmlpreview.github.io/?https://wbvguo.github.io/Rtoolset/vignettes/misc.html)
+page: <!-- 1. [Rtoolset]() -->
+<!-- 2. [RNAseq](https://wbvguo.github.io/Rtoolset/articles/RNAseq.html) -->
+<!-- 3. [Methylation](https://wbvguo.github.io/Rtoolset/articles/Methylation.html) -->
 
-#### create a dir when it does not exist
-
-``` r
-library(Rtoolset)
-mkdir("~/test/")
-#> [1] "~/test/ exists! Skip creating..."
-```
-
-#### save to pdf
-
-``` r
-save2pdf(file = "./man/figures/save2pdf.pdf", width = 6, height = 6, overwrite = TRUE,
-         plot_code = quote({
-           t = seq(0, 100, 1)
-           plot(cos(t) + t*sin(t), sin(t) - t* cos(t), type = "l", asp = 1)
-         }))
-#> png 
-#>   2
-```
-
-### print
-
-``` r
-print_pval(0.0000123)
-#> [1] "1.23e-05"
-```
-
-``` r
-vec2print(c("apple", "banana"))
-#> c("apple", "banana")
-```
-
-### match
-
-``` r
-closestMatch("DFNB31", c("DNMT1", "DTNBP1", "IFNB1"))
-#> [[1]]
-#> [1] "DTNBP1" "IFNB1" 
-#> 
-#> [[2]]
-#> [1] 2 3
-```
+<!-- ### folder & files -->
+<!-- ####  create a dir when it does not exist -->
+<!-- ```{r example} -->
+<!-- library(Rtoolset) -->
+<!-- mkdir("~/test/") -->
+<!-- ``` -->
+<!-- #### save to pdf -->
+<!-- ```{r} -->
+<!-- save2pdf(file = "./man/figures/save2pdf.pdf", width = 6, height = 6, overwrite = TRUE, -->
+<!--          plot_code = quote({ -->
+<!--            t = seq(0, 100, 1) -->
+<!--            plot(cos(t) + t*sin(t), sin(t) - t* cos(t), type = "l", asp = 1) -->
+<!--          })) -->
+<!-- ``` -->
+<!-- ### print -->
+<!-- ```{r} -->
+<!-- print_pval(0.0000123) -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- vec2print(c("apple", "banana")) -->
+<!-- ``` -->
+<!-- ### match -->
+<!-- ```{r} -->
+<!-- closestMatch("DFNB31", c("DNMT1", "DTNBP1", "IFNB1")) -->
+<!-- ``` -->
 
 ### more
 
