@@ -64,6 +64,8 @@ filter_calcpm_dge = function(count_df, group = NULL, min_count = 10, min_prop = 
 #' @return a list of variance (`var_genes_list`) and the expression matrix of most-variable genes (`topN_mat`)
 #' @export
 #'
+#' @importFrom stats var
+#'
 #' @examples
 #' get_top_var_mat(count_df)
 get_top_var_mat = function(count_df, prop = 0.2, topN = NULL){
