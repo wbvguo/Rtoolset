@@ -14,11 +14,6 @@
 #' vec2print(c("Apple", "Orange"), lang = "shell")  # For Shell: ("Apple" "Orange")
 #' vec2print(c("Apple", "Orange"), lang = "python")  # For Python: ["Apple", "Orange"]
 vec2print = function(vec, lang="R"){
-  # print a vector so that the output can be copy/paste to the code chunk
-  # :param vec: vector
-  #
-  # :return: a string
-
   if(lang=="R"){
     cat("c(", paste("\"", vec, "\"", sep="", collapse=", "), ")", sep="")
   }else if(lang=="shell"){
@@ -28,11 +23,6 @@ vec2print = function(vec, lang="R"){
   }else{
     stop("language not supported yet...")
   }
-  #################### USAGE ####################
-  # vec2print(c("Apple", "Orange"))
-  # R > c("Apple", "Orange")
-  # sh> ("Apple" "Orange")
-  # py> ["Apple", "Orange"]
 }
 
 
@@ -78,6 +68,4 @@ print_pval <- function(pvalues, threshold = 1e-4, rm_tailing0 = TRUE) {
     }
   })
   return(p_str)
-  #################### USAGE ####################
-  # print_pval(0.0101)
 }

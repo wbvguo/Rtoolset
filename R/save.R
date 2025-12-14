@@ -11,6 +11,9 @@
 #' @return A PDF file is created at the specified location.
 #' @export
 #'
+#' @importFrom grDevices pdf dev.off
+#' @importFrom qpdf pdf_combine
+#'
 #' @examples
 #' # Save a simple plot to a PDF
 #' save2pdf(file = "mytest_plot.pdf", width = 4, height = 4, overwrite = FALSE,
@@ -21,6 +24,12 @@
 save2pdf = function(file=NA, plot_code=NA, overwrite=FALSE, append=TRUE, ...){
   if(is.na(file)){stop("please specify the files to save the plot")}
   if(!is.language(plot_code)){stop("please specify the code to plot")}
+
+  # Create directory if it doesn't exist
+  dir_path <- dirname(file)
+  if (dir_path != "." && !dir.exists(dir_path)) {
+    dir.create(dir_path, recursive = TRUE)
+  }
 
   if((!file.exists(file)) | overwrite){
     # create new file with same name
@@ -52,14 +61,5 @@ save2pdf = function(file=NA, plot_code=NA, overwrite=FALSE, append=TRUE, ...){
       unlink(new_file)
     }
   }
-  #################### USAGE ####################
-  ## plot code is the involute of a circle: the path traced out
-  ## by a point on a straight line that rolls around a circle
-  ## https://www.matematica.pt/en/useful/list-curves.php
-  # save2pdf(file = "mytest_plot.pdf", width = 6, height = 6, overwrite = FALSE,
-  #          plot_code = quote({
-  #            t = seq(0, 100, 1)
-  #            plot(cos(t) + t*sin(t), sin(t) - t* cos(t), type = "l", asp = 1)
-  #          }))
 }
 

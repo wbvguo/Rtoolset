@@ -9,13 +9,15 @@ extract_params(func, verbose = FALSE)
 \arguments{
 \item{func}{A function}
 
-\item{verbose}{A logical value. If TRUE, the function will print the default}
+\item{verbose}{A logical value. If TRUE, the function will print the default
+parameter values to the console.}
 }
 \value{
-assign the default values of the function to the global environment
+Invisibly returns NULL. Assigns the default values of the function
+to the global environment.
 }
 \description{
-This function extracts the default arguments of a given function and assigns  # Description
+This function extracts the default arguments of a given function and assigns
 them to variables in the global environment. It is particularly useful for
 debugging when you need quick access to the default values.
 }

@@ -13,9 +13,7 @@ mkdir = function(dir){
   if (! dir.exists(dir)){
     dir.create(dir, recursive = TRUE)
   }else{
-    print(paste0(dir, " exists! Skip creating..."))
+    message(paste0(dir, " exists! Skip creating..."))
   }
-  #################### USAGE ####################
-  # mkdir("~/test")
 }
 

@@ -8,6 +8,8 @@
 #' @return a list of the closest match and its index in the vector
 #' @export
 #'
+#' @importFrom RecordLinkage levenshteinSim
+#'
 #' @examples
 #' closestMatch("DFNB31", c("DNMT1", "DTNBP1", "IFNB1"))
 #' #[[1]] [1] "DTNBP1" "IFNB1"
@@ -15,6 +17,4 @@
 closestMatch = function(string, stringVector){
   distance = RecordLinkage::levenshteinSim(string, stringVector);
   return(list(stringVector[distance==max(distance)], which(distance==max(distance))))
-  #################### USAGE ####################
-  # closestMatch("DFNB31", c("DNMT1", "DTNBP1", "IFNB1"))
 }
