@@ -15,12 +15,15 @@
 #' @importFrom qpdf pdf_combine
 #'
 #' @examples
+#' \dontrun{
 #' # Save a simple plot to a PDF
-#' save2pdf(file = "mytest_plot.pdf", width = 4, height = 4, overwrite = FALSE,
+#' tmp_file <- tempfile(fileext = ".pdf")
+#' save2pdf(file = tmp_file, width = 4, height = 4, overwrite = FALSE,
 #'          plot_code = quote({
 #'            t = seq(0, 100, 1)
 #'            plot(cos(t) + t*sin(t), sin(t) - t*cos(t), type = "l")
 #'          }))
+#' }
 save2pdf = function(file=NA, plot_code=NA, overwrite=FALSE, append=TRUE, ...){
   if(is.na(file)){stop("please specify the files to save the plot")}
   if(!is.language(plot_code)){stop("please specify the code to plot")}
