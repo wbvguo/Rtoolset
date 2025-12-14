@@ -10,6 +10,11 @@
 #'
 #' @return Invisibly returns NULL. Assigns the default values of the function
 #'   to the global environment.
+#' 
+#' @note This function modifies the global environment by assigning variables.
+#'   This is intentional for debugging purposes but should be used with caution
+#'   in production code.
+#' 
 #' @export
 #'
 #' @examples
