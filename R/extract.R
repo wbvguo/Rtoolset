@@ -1,13 +1,15 @@
 #' extract and assign default function arguments to the global environment
 #'
-#' This function extracts the default arguments of a given function and assigns  # Description
+#' This function extracts the default arguments of a given function and assigns
 #' them to variables in the global environment. It is particularly useful for
 #' debugging when you need quick access to the default values.
 #'
 #' @param func A function
 #' @param verbose A logical value. If TRUE, the function will print the default
+#'   parameter values to the console.
 #'
-#' @return assign the default values of the function to the global environment
+#' @return Invisibly returns NULL. Assigns the default values of the function
+#'   to the global environment.
 #' @export
 #'
 #' @examples
@@ -36,14 +38,4 @@ extract_params = function(func, verbose=FALSE) {
     }
     msg_flag = FALSE
   }
-  #################### USAGE ####################
-  # rejection_sampler <- function(D, n_trails = 10000, seed = 2024) {}
-  #
-  # # Extract and assign the variables
-  # extract_params(rejection_sampler)
-  #
-  # # Check the assigned variables
-  # print(D)         # Output: NA
-  # print(n_trails)  # Output: 10000
-  # print(seed)      # Output: 2024
 }

@@ -8,6 +8,7 @@
 #' @export
 #'
 #' @importFrom dplyr %>%
+#' @importFrom magrittr set_rownames set_colnames
 #'
 #' @examples
 #'
@@ -32,6 +33,8 @@ log_transform = function(df_mat, count = 1, base = 2){
 #'
 #' @return a list of edgeR objects, including `dge_count`, `dge_cpm`, `dge_keep`, `dge_keep_cpm`, `dge_keep_cpm_log`
 #' @export
+#'
+#' @importFrom edgeR DGEList cpm filterByExpr calcNormFactors
 #'
 #' @examples
 #' filter_calcpm_dge(count_df)

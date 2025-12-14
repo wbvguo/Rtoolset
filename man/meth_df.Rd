@@ -3,14 +3,14 @@
 \docType{data}
 \name{meth_df}
 \alias{meth_df}
-\title{the example methylation level (beta value) matrix in data.frame format}
+\title{Example methylation level (beta value) matrix}
 \format{
-An object of class \code{data.frame} with 100 rows and 20 columns.
+A data.frame with rows as features and columns as samples.
 }
 \usage{
 meth_df
 }
 \description{
-the example methylation level (beta value) matrix in data.frame format
+A data.frame containing example methylation beta values.
 }
 \keyword{datasets}

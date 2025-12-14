@@ -3,14 +3,14 @@
 \docType{data}
 \name{count_df}
 \alias{count_df}
-\title{the example count matrix in data.frame format}
+\title{Example count matrix}
 \format{
-An object of class \code{data.frame} with 100 rows and 20 columns.
+A data.frame with rows as genes and columns as samples.
 }
 \usage{
 count_df
 }
 \description{
-the example count matrix in data.frame format
+A data.frame containing example count data.
 }
 \keyword{datasets}

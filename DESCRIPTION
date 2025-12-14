@@ -1,17 +1,19 @@
 Package: Rtoolset
 Title: A tool set for R programming and data analysis
-Version: 0.0.0.1
+Version: 0.1.0
 Authors@R: 
     person("Wenbin", "Guo", email="wbguo@ucla.edu", role = c("aut", "cre"))
-Description: Provide miscellous functions and templates.
+Description: Provide miscellaneous functions and templates for R programming and data analysis.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    BiocManager,
+    remotes
 Config/testthat/edition: 3
 Imports: 
     grDevices,
