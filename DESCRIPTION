@@ -27,6 +27,8 @@ Imports:
     dplyr,
     edgeR
 VignetteBuilder: knitr
+Remotes: 
+    ryantimpe/brickr
 Depends: 
     R (>= 4.0)
 LazyData: true
