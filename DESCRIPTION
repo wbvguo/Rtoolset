@@ -15,9 +15,16 @@ Suggests:
     BiocManager,
     remotes,
     tidyverse,
+    ggplot2,
     brickr,
     png,
-    animation
+    animation,
+    gganimate,
+    gifski,
+    showtext,
+    sysfonts,
+    magick,
+    fs
 Config/testthat/edition: 3
 Imports: 
     grDevices,
