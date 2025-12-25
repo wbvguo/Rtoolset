@@ -21,6 +21,11 @@ This function extracts the default arguments of a given function and assigns
 them to variables in the global environment. It is particularly useful for
 debugging when you need quick access to the default values.
 }
+\note{
+This function modifies the global environment by assigning variables.
+This is intentional for debugging purposes but should be used with caution
+in production code.
+}
 \examples{
 rejection_sampler <- function(D, n_trails = 10000, seed = 2024) {}
 extract_params(rejection_sampler)

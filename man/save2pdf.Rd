@@ -24,10 +24,13 @@ A PDF file is created at the specified location.
 This function saves a plot to a PDF file. It can create a new PDF or append the plot to an existing file. If the file already exists and \code{overwrite} is set to \code{FALSE}, a new uniquely named file is created.
 }
 \examples{
+\dontrun{
 # Save a simple plot to a PDF
-save2pdf(file = "mytest_plot.pdf", width = 4, height = 4, overwrite = FALSE,
+tmp_file <- tempfile(fileext = ".pdf")
+save2pdf(file = tmp_file, width = 4, height = 4, overwrite = FALSE,
          plot_code = quote({
            t = seq(0, 100, 1)
            plot(cos(t) + t*sin(t), sin(t) - t*cos(t), type = "l")
          }))
+}
 }
