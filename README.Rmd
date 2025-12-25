@@ -32,7 +32,18 @@ pak::pak("wbvguo/Rtoolset")
 ```
 
 ## Usage
-check out the [vignette](https://htmlpreview.github.io/?https://github.com/wbvguo/Rtoolset/blob/main/vignettes/misc.html) page:
+
+```{r example, eval = FALSE}
+library(Rtoolset)
+draw_xmas_tree_panel_gif()
+```
+
+```{r, echo = FALSE, out.width = "100%"}
+knitr::include_graphics("man/figures/xmas_panel.gif")
+```
+
+
+<!-- check out the [vignette](https://htmlpreview.github.io/?https://github.com/wbvguo/Rtoolset/blob/main/vignettes/misc.html) page: -->
 <!-- 1. [Rtoolset]() -->
 <!-- 2. [RNAseq](https://wbvguo.github.io/Rtoolset/articles/RNAseq.html) -->
 <!-- 3. [Methylation](https://wbvguo.github.io/Rtoolset/articles/Methylation.html) -->

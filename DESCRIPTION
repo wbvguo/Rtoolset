@@ -13,7 +13,11 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0),
     BiocManager,
-    remotes
+    remotes,
+    tidyverse,
+    brickr,
+    png,
+    animation
 Config/testthat/edition: 3
 Imports: 
     grDevices,
@@ -24,5 +28,5 @@ Imports:
     edgeR
 VignetteBuilder: knitr
 Depends: 
-    R (>= 3.5)
+    R (>= 4.0)
 LazyData: true
