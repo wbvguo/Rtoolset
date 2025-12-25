@@ -116,6 +116,9 @@ draw_heart <- function(
 #' the build steps/panels. The output can be used with `draw_heart_gif()` to
 #' create an animated GIF.
 #'
+#' @note The \pkg{brickr} package is available on GitHub and must be installed
+#'   with `remotes::install_github("ryantimpe/brickr")` before using this function.
+#'
 #' @param image_path Character scalar. Path to the PNG image file to convert.
 #'   If NULL and `heart_image` is also NULL, a simple heart shape will be generated.
 #' @param heart_image Optional. Can be a ggplot object (output from `draw_heart()`)
@@ -155,15 +158,22 @@ draw_heart_step <- function(
   show = FALSE
 ) {
   # ---- Package dependency checks ----
-  .require_pkg <- function(pkg) {
+  .require_pkg <- function(pkg, github_repo = NULL) {
     if (!requireNamespace(pkg, quietly = TRUE)) {
-      stop(sprintf("Package '%s' is required but not installed.", pkg), call. = FALSE)
+      if (!is.null(github_repo)) {
+        stop(sprintf("Package '%s' is required but not installed. Install it with: remotes::install_github('%s')", pkg, github_repo), call. = FALSE)
+      } else {
+        stop(sprintf("Package '%s' is required but not installed.", pkg), call. = FALSE)
+      }
     }
   }
   
   # Check for required packages
-  pkgs <- c("brickr", "png", "dplyr", "ggplot2")
-  invisible(lapply(pkgs, .require_pkg))
+  # brickr is only available on GitHub
+  .require_pkg("brickr", github_repo = "ryantimpe/brickr")
+  .require_pkg("png")
+  .require_pkg("dplyr")
+  .require_pkg("ggplot2")
   
   # Load brickr to make internal data (lego_colors) available
   # brickr functions require access to internal datasets that aren't accessible via ::
