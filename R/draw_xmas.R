@@ -619,13 +619,20 @@ draw_xmas_tree_panel_gif <- function(
   }
 
   # Set ImageMagick resource limits to prevent cache exhaustion
+  # Note: image_resource_limit may not be exported in all magick versions
+  # Using get() to avoid R CMD check warnings for unexported functions
   tryCatch({
-    magick::image_resource_limit("memory", "8GiB")
-    magick::image_resource_limit("map", "16GiB")
-    magick::image_resource_limit("disk", "16GiB")
+    if (requireNamespace("magick", quietly = TRUE)) {
+      img_limit <- get("image_resource_limit", envir = asNamespace("magick"), mode = "function", inherits = FALSE)
+      if (!is.null(img_limit)) {
+        img_limit("memory", "8GiB")
+        img_limit("map", "16GiB")
+        img_limit("disk", "16GiB")
+      }
+    }
   }, error = function(e) {
     # Resource limits may not be available in all ImageMagick versions
-    warning("Could not set ImageMagick resource limits.", call. = FALSE)
+    # Silently ignore - this is optional functionality
   })
   
   if (is.null(tmp_dir)) tmp_dir <- fs::path_temp("xmas_panel_tiles")
