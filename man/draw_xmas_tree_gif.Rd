@@ -82,7 +82,12 @@ res <- draw_xmas_tree_gif(style = "classic", text = "Merry Christmas\\\\n2025")
 print(res$animation)
 
 # Save to file:
-draw_xmas_tree_gif(style = "pink", text = "Happy Holidays\\\\nWenbin", out_gif = "xmas.gif", show = FALSE)
+draw_xmas_tree_gif(
+  style = "pink", 
+  text = "Happy Holidays\\\\nWenbin", 
+  out_gif = "xmas.gif", 
+  show = FALSE
+)
 }
 
 }

@@ -148,6 +148,7 @@ draw_heart <- function(
 #' print(brickr::build_mosaic(heart_steps$mosaic))
 #' }
 #'
+#' @importFrom dplyr .data
 #' @export
 draw_heart_step <- function(
   image_path = NULL,
@@ -175,11 +176,8 @@ draw_heart_step <- function(
   .require_pkg("dplyr")
   .require_pkg("ggplot2")
   
-  # Load brickr to make internal data (lego_colors) available
-  # brickr functions require access to internal datasets that aren't accessible via ::
-  if (!("package:brickr" %in% search())) {
-    suppressPackageStartupMessages(library(brickr, character.only = TRUE))
-  }
+  # Note: brickr functions are called via :: (e.g., brickr::image_to_mosaic)
+  # No need to attach the package since we use namespace-qualified calls
   
   # ---- Input validation ----
   if (!is.null(image_path) && !is.null(heart_image)) {
@@ -260,7 +258,7 @@ draw_heart_step <- function(
     # Create a copy of build and filter its data
     step_plot <- build
     step_plot$data <- step_plot$data %>% 
-      dplyr::filter(Step == step_label)
+      dplyr::filter(.data$Step == step_label)
     # Add scales to the plot
     step_plot + 
       ggplot2::scale_x_continuous(limits = c(0, width)) + 
