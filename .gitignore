@@ -40,8 +40,8 @@
 .Renviron
 
 # pkgdown site
-docs/
-!docs/.nojekyll
+#docs/
+#!docs/.nojekyll
 
 # translation temp files
 po/*~

@@ -15,5 +15,6 @@ mkdir = function(dir){
   }else{
     message(paste0(dir, " exists! Skip creating..."))
   }
+  return(invisible(dir))
 }
 

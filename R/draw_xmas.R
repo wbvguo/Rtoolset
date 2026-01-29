@@ -41,9 +41,15 @@
 #' print(res$animation)
 #'
 #' # Save to file:
-#' draw_xmas_tree_gif(style = "pink", text = "Happy Holidays\\nWenbin", out_gif = "xmas.gif", show = FALSE)
+#' draw_xmas_tree_gif(
+#'   style = "pink", 
+#'   text = "Happy Holidays\\nWenbin", 
+#'   out_gif = "xmas.gif", 
+#'   show = FALSE
+#' )
 #' }
 #'
+#' @importFrom stats runif
 #' @export
 draw_xmas_tree_gif <- function(
   style = 1,

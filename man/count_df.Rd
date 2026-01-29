@@ -13,4 +13,4 @@ count_df
 \description{
 A data.frame containing example count data.
 }
-\keyword{datasets}
+\keyword{internal}

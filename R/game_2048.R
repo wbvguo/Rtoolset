@@ -6,6 +6,7 @@
 #' @param target Winning tile value (default 2048)
 #'
 #' @return Final board (invisibly)
+#' @importFrom dplyr .data
 #' @export
 play_2048 <- function(board_size = 4, target = 2048) {
 
@@ -70,21 +71,21 @@ play_2048 <- function(board_size = 4, target = 2048) {
       )
     }
 
-    ggplot2::ggplot(df, ggplot2::aes(V2, n + 1L - V1)) +
+    ggplot2::ggplot(df, ggplot2::aes(.data$V2, n + 1L - .data$V1)) +
       ggplot2::geom_tile(
         data = grid,
-        ggplot2::aes(Var1, Var2),
+        ggplot2::aes(.data$Var1, .data$Var2),
         fill = "grey90",
         width = 0.9,
         height = 0.9
       ) +
       ggplot2::geom_tile(
-        ggplot2::aes(fill = value),
+        ggplot2::aes(fill = .data$value),
         width = 0.9,
         height = 0.9
       ) +
       ggplot2::geom_text(
-        ggplot2::aes(label = value),
+        ggplot2::aes(label = .data$value),
         colour = "white",
         size = 10
       ) +

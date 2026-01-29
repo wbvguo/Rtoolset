@@ -5,17 +5,16 @@ Authors@R:
     person("Wenbin", "Guo", email="wbguo@ucla.edu", role = c("aut", "cre"))
 Description: Provide miscellaneous functions and templates for R programming and data analysis.
 License: MIT + file LICENSE
+URL: https://github.com/wbvguo/Rtoolset
+BugReports: https://github.com/wbvguo/Rtoolset/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Suggests: 
-    knitr,
-    rmarkdown,
     testthat (>= 3.0.0),
     BiocManager,
     remotes,
     tidyverse,
-    ggplot2,
     brickr,
     png,
     animation,
@@ -24,7 +23,8 @@ Suggests:
     showtext,
     sysfonts,
     magick,
-    fs
+    fs,
+    DescTools
 Config/testthat/edition: 3
 Imports: 
     grDevices,
@@ -32,8 +32,8 @@ Imports:
     RecordLinkage,
     magrittr,
     dplyr,
-    edgeR
-VignetteBuilder: knitr
+    edgeR,
+    ggplot2
 Remotes: 
     ryantimpe/brickr
 Depends: 

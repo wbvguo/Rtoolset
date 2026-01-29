@@ -1,0 +1,104 @@
+url: https://github.com/wbvguo/Rtoolset
+
+navbar:
+  structure:
+    left: [logo, intro, reference, articles]
+    right: [github]
+  components:
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/wbvguo/Rtoolset
+  logo:
+    image: man/figures/logo/Rtoolset.svg
+    href: index.html
+    alt: Rtoolset logo
+
+home:
+  title: Rtoolset
+  readme: false
+  index: index.md
+  sidebar:
+    # structure: [links, license, community, citation, authors]
+    structure: [links, license, community]
+    components:
+      license:
+        title: License
+        text: "[MIT License](LICENSE.html)"
+      # citation:
+      #   title: Citation
+      #   text: |
+      #     If you use Rtoolset in your research, please cite:
+      #     ```
+      #     @Manual{rtoolset,
+      #       title = {Rtoolset: A Tool Set for R Programming and Data Analysis},
+      #       author = {Wenbin Guo},
+      #       year = {2025},
+      #       note = {R package version 0.1.0}
+      #     }
+      #     ```
+
+reference:
+  - title: Utility Functions for Samples
+    desc: A collection of sample functions
+    contents:
+      - balanced_partition
+      - balance_partition_core
+  
+  - title: Utility Functions for Omics Data Analysis
+    desc: RNA-seq and DNA methylation analysis
+    contents:
+      - filter_calcpm_dge
+      - log_transform
+      - get_top_var_mat
+      - beta2M
+  
+  - title: Other Utility Functions
+    desc: Helper functions
+    contents:
+      - closestMatch
+      - print_pval
+      - vec2print
+      - mkdir
+      - save2pdf
+      - extract_params
+      - createNamedList
+      - install_packages
+      - check_packages
+  
+  - title: Games and Fun
+    desc: Interactive games and fun visualizations
+    contents:
+      - play_2048
+      - draw_heart
+      - draw_heart_step
+      - draw_heart_gif
+      - draw_xmas_tree_gif
+      - draw_xmas_tree_panel_gif
+
+articles:
+  - title: "Getting Started"
+    navbar: ~
+    contents:
+      - getting-started
+  
+  - title: "Data Visualization"
+    navbar: ~
+    contents:
+      - data-visualization
+  
+  - title: "Data Analysis"
+    navbar: ~
+    contents:
+      - data-partitioning
+  
+  - title: "Genomics Workflows"
+    navbar: ~
+    contents:
+      - rnaseq-workflow
+      - dnam-workflow
+  
+  - title: "Utilities"
+    navbar: ~
+    contents:
+      - utilities-guide
+
