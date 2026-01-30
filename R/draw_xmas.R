@@ -541,7 +541,7 @@ draw_xmas_tree_gif <- function(
 #'
 #' @return Invisibly returns the `magick-image` animation object.
 #' @export
-draw_xmas_tree_panel_gif <- function(
+draw_xmas_tree_gif_panel <- function(
   styles = 1:9,
   out_gif = "xmas_panel.gif",
   text_fun = function(i) paste0("Style ", i),

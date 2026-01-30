@@ -22,6 +22,7 @@
 #' }
 #'
 #' @importFrom stats aggregate
+#' @importFrom DescTools Gini
 #' @export
 balance_partition_core <- function(
   score,
@@ -32,10 +33,6 @@ balance_partition_core <- function(
   seed = NULL
 ) {
   method <- match.arg(method)
-
-  if (!requireNamespace("DescTools", quietly = TRUE)) {
-    stop("Package 'DescTools' is required. Please install it.")
-  }
 
   if (!is.numeric(score)) stop("`score` must be numeric.")
   if (anyNA(score)) stop("`score` contains NA; handle missing values first.")
@@ -62,7 +59,7 @@ balance_partition_core <- function(
     mu  <- tapply(score, groups, mean)
     sdv <- tapply(score, groups, stats::sd)
     if (anyNA(sdv)) return(Inf)
-    DescTools::Gini(mu) + lambda * DescTools::Gini(sdv)
+    Gini(mu) + lambda * Gini(sdv)
   }
 
   best_loss   <- Inf

@@ -2,13 +2,12 @@ pandoc: 3.6.3
 pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
-  data-partitioning: data-partitioning.html
-  data-visualization: data-visualization.html
   dnam-workflow: dnam-workflow.html
-  getting-started: getting-started.html
   rnaseq-workflow: rnaseq-workflow.html
+  sample-partition: sample-partition.html
   utilities-guide: utilities-guide.html
-last_built: 2026-01-29T09:50Z
+  visualization: visualization.html
+last_built: 2026-01-30T11:06Z
 urls:
-  reference: https://github.com/wbvguo/Rtoolset/reference
-  article: https://github.com/wbvguo/Rtoolset/articles
+  reference: https://wbvguo.github.io/Rtoolset/reference
+  article: https://wbvguo.github.io/Rtoolset/articles
