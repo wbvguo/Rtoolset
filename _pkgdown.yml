@@ -21,6 +21,7 @@ navbar:
     github:
       icon: fab fa-github fa-lg
       href: https://github.com/wbvguo/Rtoolset
+      aria-label: GitHub repository
   logo:
     image: man/figures/logo/Rtoolset.svg
     href: index.html
