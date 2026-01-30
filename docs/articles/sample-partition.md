@@ -1,7 +1,5 @@
 # Sample Partitioning
 
-## Balanced Data Partitioning
-
 The
 [`balanced_partition()`](https://wbvguo.github.io/Rtoolset/reference/balanced_partition.md)
 function partitions data into balanced groups while minimizing variance
@@ -9,7 +7,7 @@ in group means and standard deviations. This is useful for creating
 balanced experimental groups, cross-validation folds, or training/test
 splits.
 
-### Overview
+## Overview
 
 The partitioning algorithm minimizes:
 
@@ -21,9 +19,9 @@ where: - `Gini(group_means)` measures inequality in group means -
 `Gini(group_SDs)` measures inequality in group standard deviations -
 `lambda` controls the trade-off between balancing means vs. SDs
 
-### Basic Usage
+## Basic Usage
 
-#### Simple Partitioning
+### Simple Partitioning
 
 ``` r
 library(Rtoolset)
@@ -62,7 +60,7 @@ head(result$assignment)
 #> 18       242     1  25.3
 ```
 
-#### With Custom Group Sizes
+### With Custom Group Sizes
 
 ``` r
 # Specify exact group sizes (must sum to nrow(data))
@@ -74,9 +72,9 @@ result <- balanced_partition(
 )
 ```
 
-### Advanced Options
+## Advanced Options
 
-#### Adjusting the Balance Trade-off
+### Adjusting the Balance Trade-off
 
 The `lambda` parameter controls how much weight to put on balancing
 standard deviations:
@@ -99,7 +97,7 @@ result2 <- balanced_partition(
 )
 ```
 
-#### Partitioning Methods
+### Partitioning Methods
 
 Two methods are available:
 
@@ -122,7 +120,7 @@ result2 <- balanced_partition(
 )
 ```
 
-#### Output Options
+### Output Options
 
 Generate plots and CSV files:
 
@@ -139,7 +137,7 @@ result <- balanced_partition(
 )
 ```
 
-### Understanding the Results
+## Understanding the Results
 
 The function returns a list with several components:
 
@@ -195,9 +193,9 @@ result$plot
 #> NULL
 ```
 
-### Use Cases
+## Use Cases
 
-#### 1. Experimental Design
+### 1. Experimental Design
 
 Create balanced treatment groups:
 
@@ -212,7 +210,7 @@ groups <- balanced_partition(
 )
 ```
 
-#### 2. Cross-Validation
+### 2. Cross-Validation
 
 Create balanced CV folds:
 
@@ -232,7 +230,7 @@ for (fold in 1:5) {
 }
 ```
 
-#### 3. Training/Test Split
+### 3. Training/Test Split
 
 Create balanced train/test splits:
 
@@ -248,7 +246,7 @@ train_data <- data[split$assignment$group == 1, ]
 test_data <- data[split$assignment$group == 2, ]
 ```
 
-### Tips and Best Practices
+## Tips and Best Practices
 
 1.  **Data Quality**: Ensure your score column has no missing values
 2.  **Group Sizes**: For best results, groups should be roughly equal in
@@ -259,7 +257,7 @@ test_data <- data[split$assignment$group == 2, ]
 5.  **Visualization**: Always check `output_plot = TRUE` to verify
     balance
 
-### Algorithm Details
+## Algorithm Details
 
 The core algorithm (`balance_partition_core`) uses a random search
 approach:
@@ -271,7 +269,7 @@ approach:
 The number of candidates (`B`) can be increased for better results at
 the cost of computation time.
 
-### See Also
+## See Also
 
 - Function reference:
   [`?balanced_partition`](https://wbvguo.github.io/Rtoolset/reference/balanced_partition.md),

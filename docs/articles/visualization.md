@@ -1,13 +1,11 @@
 # Visualization
 
-## Data Visualization with Rtoolset
-
 Rtoolset provides several functions for creating beautiful
 visualizations, including animated GIFs, heart shapes, and LEGO mosaics.
 These tools are perfect for creating engaging presentations, social
 media content, or fun visualizations.
 
-### Overview
+## Overview
 
 The visualization functions in Rtoolset include:
 
@@ -21,9 +19,9 @@ The visualization functions in Rtoolset include:
 All visualization functions support extensive customization including
 colors, dimensions, text, and animation parameters.
 
-### Animated Christmas Tree
+## Animated Christmas Tree
 
-#### Basic Usage
+### Basic Usage
 
 Create an animated Christmas tree GIF:
 
@@ -39,7 +37,7 @@ draw_xmas_tree_gif(
 )
 ```
 
-#### Panel-Style Animation
+### Panel-Style Animation
 
 Create a panel-style animation showing multiple frames:
 
@@ -47,7 +45,7 @@ Create a panel-style animation showing multiple frames:
 draw_xmas_tree_gif_panel()
 ```
 
-#### Available Styles
+### Available Styles
 
 The
 [`draw_xmas_tree_gif()`](https://wbvguo.github.io/Rtoolset/reference/draw_xmas_tree_gif.md)
@@ -64,7 +62,7 @@ function supports multiple built-in styles:
 - `"electric"` or `9`: Electric, neon colors
 - `"olive earth"` or `10`: Earth tones
 
-#### Customization
+### Customization
 
 You can customize various aspects of the tree:
 
@@ -83,9 +81,9 @@ draw_xmas_tree_gif(
 )
 ```
 
-### Heart Shape Visualizations
+## Heart Shape Visualizations
 
-#### Creating a 2D Heart
+### Creating a 2D Heart
 
 Draw a simple 2D heart shape:
 
@@ -105,7 +103,7 @@ heart_plot <- draw_heart(out_png = NULL, fill = "red")
 print(heart_plot)
 ```
 
-#### Converting to LEGO Mosaic
+### Converting to LEGO Mosaic
 
 Convert a heart image to a LEGO mosaic with build steps:
 
@@ -135,7 +133,7 @@ GitHub:
 remotes::install_github("ryantimpe/brickr")
 ```
 
-#### Creating Animated Build GIFs
+### Creating Animated Build GIFs
 
 Create an animated GIF showing the step-by-step build process:
 
@@ -163,9 +161,9 @@ draw_heart_gif(
 )
 ```
 
-### Use Cases
+## Use Cases
 
-#### 1. Holiday Greetings
+### 1. Holiday Greetings
 
 Create personalized holiday animations:
 
@@ -181,7 +179,7 @@ draw_xmas_tree_gif(
 )
 ```
 
-#### 2. Social Media Content
+### 2. Social Media Content
 
 Generate eye-catching visualizations for social media:
 
@@ -196,7 +194,7 @@ draw_heart(
 )
 ```
 
-#### 3. Educational Demonstrations
+### 3. Educational Demonstrations
 
 Show step-by-step build processes:
 
@@ -217,7 +215,7 @@ draw_heart_gif(
 )
 ```
 
-### Tips and Best Practices
+## Tips and Best Practices
 
 1.  **File Formats**:
     - Heart images are saved as PNG files
@@ -242,7 +240,7 @@ draw_heart_gif(
     - More frames provide longer animations
     - Balance quality with file size for web use
 
-### See Also
+## See Also
 
 - Function reference:
   [`?draw_xmas_tree_gif`](https://wbvguo.github.io/Rtoolset/reference/draw_xmas_tree_gif.md),
