@@ -9,21 +9,26 @@
 <!-- badges: end -->
 
 **Rtoolset** is a miscellaneous tool set for R programming and data
-analysis. It currently provides utility functions for:
+analysis. It provides functions for sample and feature-level operations,
+data transformation, R programming helpers, and visualizations.
 
-- **🔧 Utilities**: String matching, formatting, file management,
-  package installation
-- **📊 Data Analysis**: Balanced partitioning, statistical analysis, and
-  some helper functions in omics analysis (e.g., RNA-seq and DNA
-  methylation)
-- **🎮 Games and Fun visualizations**: Interactive 2048 game, animated
-  GIFs
+The package currently provides utility functions for:
+
+- **📊 Sample Operations**: Balanced partitioning of
+  samples/observations
+- **🔬 Feature Operations**: Selection and filtering of
+  features/genes/variables
+- **🔄 Data Transformation**: Matrix transformations for omics data (log
+  transform, beta to M values)
+- **🔧 General Utilities**: String matching, formatting, file
+  management, package installation
+- **🎮 Visualization & Fun**: Interactive 2048 game, animated GIFs
 
 and more it to come…
 
 ## Installation
 
-You can install the development version of Rtoolset from
+You can install Rtoolset from
 [GitHub](https://github.com/wbvguo/Rtoolset.git) with:
 
 ``` r
@@ -42,10 +47,10 @@ remotes::install_github("wbvguo/Rtoolset")
 library(Rtoolset)
 
 # Example: Create an animated Christmas tree
-draw_xmas_tree_panel_gif()
+draw_xmas_tree_gif_panel()
 ```
 
-<img src="man/figures/xmas_panel.gif" alt="" width="100%" />
+<img src="man/figures/xmas_panel.gif" alt="" width="80%" />
 
 ## Documentation
 

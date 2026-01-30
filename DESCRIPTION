@@ -5,7 +5,7 @@ Authors@R:
     person("Wenbin", "Guo", email="wbguo@ucla.edu", role = c("aut", "cre"))
 Description: Provide miscellaneous functions and templates for R programming and data analysis.
 License: MIT + file LICENSE
-URL: https://github.com/wbvguo/Rtoolset
+URL: https://github.com/wbvguo/Rtoolset, https://wbvguo.github.io/Rtoolset
 BugReports: https://github.com/wbvguo/Rtoolset/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -23,8 +23,7 @@ Suggests:
     showtext,
     sysfonts,
     magick,
-    fs,
-    DescTools
+    fs
 Config/testthat/edition: 3
 Imports: 
     grDevices,
@@ -33,7 +32,8 @@ Imports:
     magrittr,
     dplyr,
     edgeR,
-    ggplot2
+    ggplot2,
+    DescTools
 Remotes: 
     ryantimpe/brickr
 Depends: 

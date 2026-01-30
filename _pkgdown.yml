@@ -1,4 +1,17 @@
-url: https://github.com/wbvguo/Rtoolset
+url: https://wbvguo.github.io/Rtoolset/
+
+template:
+  bootstrap: 5
+  includes:
+    in_header: |
+      <style>
+        /* Ensure TOC is visible on articles */
+        .contents h2, .contents h3 {
+          scroll-margin-top: 70px;
+        }
+      </style>
+  params:
+    bootswatch: default
 
 navbar:
   structure:
@@ -38,22 +51,26 @@ home:
       #     ```
 
 reference:
-  - title: Utility Functions for Samples
-    desc: A collection of sample functions
+  - title: Sample Operations
+    desc: Functions that operate on samples/observations
     contents:
       - balanced_partition
       - balance_partition_core
   
-  - title: Utility Functions for Omics Data Analysis
-    desc: RNA-seq and DNA methylation analysis
+  - title: Feature Operations
+    desc: Functions that operate on features/genes/variables
     contents:
-      - filter_calcpm_dge
-      - log_transform
       - get_top_var_mat
+      - filter_calcpm_dge
+  
+  - title: Data Transformation
+    desc: Functions that transform entire matrices/dataframes
+    contents:
+      - log_transform
       - beta2M
   
-  - title: Other Utility Functions
-    desc: Helper functions
+  - title: Utilities
+    desc: Helper functions for common tasks
     contents:
       - closestMatch
       - print_pval
@@ -65,31 +82,26 @@ reference:
       - install_packages
       - check_packages
   
-  - title: Games and Fun
-    desc: Interactive games and fun visualizations
+  - title: Visualization & Fun
+    desc: Games and visualizations
     contents:
       - play_2048
       - draw_heart
       - draw_heart_step
       - draw_heart_gif
       - draw_xmas_tree_gif
-      - draw_xmas_tree_panel_gif
+      - draw_xmas_tree_gif_panel
 
 articles:
-  - title: "Getting Started"
-    navbar: ~
-    contents:
-      - getting-started
-  
   - title: "Data Visualization"
     navbar: ~
     contents:
-      - data-visualization
+      - visualization
   
   - title: "Data Analysis"
     navbar: ~
     contents:
-      - data-partitioning
+      - sample-partition
   
   - title: "Genomics Workflows"
     navbar: ~
