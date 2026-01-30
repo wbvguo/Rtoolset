@@ -50,7 +50,7 @@ library(Rtoolset)
 draw_xmas_tree_gif_panel()
 ```
 
-<img src="man/figures/xmas_panel.gif" alt="" width="80%" />
+<img src="man/figures/xmas_panel.gif" alt="" width="100%" />
 
 ## Documentation
 
@@ -61,15 +61,12 @@ draw_xmas_tree_gif_panel()
 
   ``` r
   browseVignettes("Rtoolset")
-  vignette("getting-started", package = "Rtoolset")
   ```
 
 - For function reference, use standard R help:
 
   ``` r
   ?draw_heart
-  ?balanced_partition
-  ?filter_calcpm_dge
   ```
 
 ## Contributing
