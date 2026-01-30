@@ -1,20 +1,14 @@
 # Rtoolset
 
 **Rtoolset** is a miscellaneous tool set for R programming and data
-analysis. It provides functions for sample and feature-level operations,
-data transformation, R programming helpers, and visualizations. For
-example:
+analysis, providing utility functions for:
 
-- **📊 Sample Operations**: Balanced partitioning of
-  samples/observations
-- **🔬 Feature Operations**: Selection and filtering of
-  features/genes/variables
-- **🔄 Data Transformation**: Commonly-used data transformation for
-  omics data
-- **🔧 General Utilities**: String matching, formatting, file
-  management, package installation
-- **🎮 Visualization & Fun**: Interactive 2048 game, animated GIFs,
-  interesting visualizations
+- **📊 Sample Operations**: Balanced partitioning
+- **🔬 Feature Operations**: Selection and filtering
+- **🔄 Data Transformation**: Common transformations
+- **💻 R Programming**: String matching, formatting, objects
+- **🔧 General Utilities**: File management, package installation
+- **🎮 Visualization & Fun**: Interesting visualizations and games
 
 *and more to come…*
 
