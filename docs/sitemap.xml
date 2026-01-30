@@ -2,10 +2,7 @@
 <url><loc>https://wbvguo.github.io/Rtoolset/404.html</loc></url>
 <url><loc>https://wbvguo.github.io/Rtoolset/LICENSE-text.html</loc></url>
 <url><loc>https://wbvguo.github.io/Rtoolset/LICENSE.html</loc></url>
-<url><loc>https://wbvguo.github.io/Rtoolset/articles/data-partitioning.html</loc></url>
-<url><loc>https://wbvguo.github.io/Rtoolset/articles/data-visualization.html</loc></url>
 <url><loc>https://wbvguo.github.io/Rtoolset/articles/dnam-workflow.html</loc></url>
-<url><loc>https://wbvguo.github.io/Rtoolset/articles/getting-started.html</loc></url>
 <url><loc>https://wbvguo.github.io/Rtoolset/articles/index.html</loc></url>
 <url><loc>https://wbvguo.github.io/Rtoolset/articles/rnaseq-workflow.html</loc></url>
 <url><loc>https://wbvguo.github.io/Rtoolset/articles/sample-partition.html</loc></url>
@@ -25,7 +22,6 @@
 <url><loc>https://wbvguo.github.io/Rtoolset/reference/draw_heart_step.html</loc></url>
 <url><loc>https://wbvguo.github.io/Rtoolset/reference/draw_xmas_tree_gif.html</loc></url>
 <url><loc>https://wbvguo.github.io/Rtoolset/reference/draw_xmas_tree_gif_panel.html</loc></url>
-<url><loc>https://wbvguo.github.io/Rtoolset/reference/draw_xmas_tree_panel_gif.html</loc></url>
 <url><loc>https://wbvguo.github.io/Rtoolset/reference/extract_params.html</loc></url>
 <url><loc>https://wbvguo.github.io/Rtoolset/reference/filter_calcpm_dge.html</loc></url>
 <url><loc>https://wbvguo.github.io/Rtoolset/reference/get_top_var_mat.html</loc></url>
