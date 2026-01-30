@@ -72,16 +72,13 @@
 
     
     
-<div class="section level2">
-<h2 id="balanced-data-partitioning">Balanced Data Partitioning<a class="anchor" aria-label="anchor" href="#balanced-data-partitioning"></a>
-</h2>
 <p>The <code><a href="../reference/balanced_partition.html">balanced_partition()</a></code> function partitions data into
 balanced groups while minimizing variance in group means and standard
 deviations. This is useful for creating balanced experimental groups,
 cross-validation folds, or training/test splits.</p>
-<div class="section level3">
-<h3 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
-</h3>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
 <p>The partitioning algorithm minimizes:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">loss</mtext><mo>=</mo><mtext mathvariant="normal">Gini</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">group_means</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>λ</mi><mo>×</mo><mtext mathvariant="normal">Gini</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">group_SDs</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\text{loss} = \text{Gini}(\text{group\_means}) + \lambda \times \text{Gini}(\text{group\_SDs})</annotation></semantics></math></p>
 <p>where: - <code>Gini(group_means)</code> measures inequality in group
@@ -89,12 +86,12 @@ means - <code>Gini(group_SDs)</code> measures inequality in group
 standard deviations - <code>lambda</code> controls the trade-off between
 balancing means vs. SDs</p>
 </div>
+<div class="section level2">
+<h2 id="basic-usage">Basic Usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
+</h2>
 <div class="section level3">
-<h3 id="basic-usage">Basic Usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
+<h3 id="simple-partitioning">Simple Partitioning<a class="anchor" aria-label="anchor" href="#simple-partitioning"></a>
 </h3>
-<div class="section level4">
-<h4 id="simple-partitioning">Simple Partitioning<a class="anchor" aria-label="anchor" href="#simple-partitioning"></a>
-</h4>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/wbvguo/Rtoolset" class="external-link">Rtoolset</a></span><span class="op">)</span></span>
 <span></span>
@@ -129,9 +126,9 @@ balancing means vs. SDs</p>
 <span><span class="co">#&gt; 17       241     1  23.7</span></span>
 <span><span class="co">#&gt; 18       242     1  25.3</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="with-custom-group-sizes">With Custom Group Sizes<a class="anchor" aria-label="anchor" href="#with-custom-group-sizes"></a>
-</h4>
+<div class="section level3">
+<h3 id="with-custom-group-sizes">With Custom Group Sizes<a class="anchor" aria-label="anchor" href="#with-custom-group-sizes"></a>
+</h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Specify exact group sizes (must sum to nrow(data))</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/balanced_partition.html">balanced_partition</a></span><span class="op">(</span></span>
@@ -142,12 +139,12 @@ balancing means vs. SDs</p>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
+<div class="section level2">
+<h2 id="advanced-options">Advanced Options<a class="anchor" aria-label="anchor" href="#advanced-options"></a>
+</h2>
 <div class="section level3">
-<h3 id="advanced-options">Advanced Options<a class="anchor" aria-label="anchor" href="#advanced-options"></a>
+<h3 id="adjusting-the-balance-trade-off">Adjusting the Balance Trade-off<a class="anchor" aria-label="anchor" href="#adjusting-the-balance-trade-off"></a>
 </h3>
-<div class="section level4">
-<h4 id="adjusting-the-balance-trade-off">Adjusting the Balance Trade-off<a class="anchor" aria-label="anchor" href="#adjusting-the-balance-trade-off"></a>
-</h4>
 <p>The <code>lambda</code> parameter controls how much weight to put on
 balancing standard deviations:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -167,9 +164,9 @@ balancing standard deviations:</p>
 <span>  lambda <span class="op">=</span> <span class="fl">2.0</span>  <span class="co"># More weight on SD balance</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="partitioning-methods">Partitioning Methods<a class="anchor" aria-label="anchor" href="#partitioning-methods"></a>
-</h4>
+<div class="section level3">
+<h3 id="partitioning-methods">Partitioning Methods<a class="anchor" aria-label="anchor" href="#partitioning-methods"></a>
+</h3>
 <p>Two methods are available:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Blocked permutation (default, faster for large datasets)</span></span>
@@ -189,9 +186,9 @@ balancing standard deviations:</p>
 <span>  B <span class="op">=</span> <span class="fl">10000</span>  <span class="co"># More iterations for better results</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="output-options">Output Options<a class="anchor" aria-label="anchor" href="#output-options"></a>
-</h4>
+<div class="section level3">
+<h3 id="output-options">Output Options<a class="anchor" aria-label="anchor" href="#output-options"></a>
+</h3>
 <p>Generate plots and CSV files:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/balanced_partition.html">balanced_partition</a></span><span class="op">(</span></span>
@@ -206,9 +203,9 @@ balancing standard deviations:</p>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="understanding-the-results">Understanding the Results<a class="anchor" aria-label="anchor" href="#understanding-the-results"></a>
-</h3>
+<div class="section level2">
+<h2 id="understanding-the-results">Understanding the Results<a class="anchor" aria-label="anchor" href="#understanding-the-results"></a>
+</h2>
 <p>The function returns a list with several components:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/balanced_partition.html">balanced_partition</a></span><span class="op">(</span><span class="va">data</span>, score_col <span class="op">=</span> <span class="st">"BW"</span>, K <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
@@ -261,12 +258,12 @@ balancing standard deviations:</p>
 <span><span class="va">result</span><span class="op">$</span><span class="va">plot</span></span>
 <span><span class="co">#&gt; NULL</span></span></code></pre></div>
 </div>
+<div class="section level2">
+<h2 id="use-cases">Use Cases<a class="anchor" aria-label="anchor" href="#use-cases"></a>
+</h2>
 <div class="section level3">
-<h3 id="use-cases">Use Cases<a class="anchor" aria-label="anchor" href="#use-cases"></a>
+<h3 id="experimental-design">1. Experimental Design<a class="anchor" aria-label="anchor" href="#experimental-design"></a>
 </h3>
-<div class="section level4">
-<h4 id="experimental-design">1. Experimental Design<a class="anchor" aria-label="anchor" href="#experimental-design"></a>
-</h4>
 <p>Create balanced treatment groups:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create 4 balanced treatment groups using body weight</span></span>
@@ -278,9 +275,9 @@ balancing standard deviations:</p>
 <span>  output_plot <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="cross-validation">2. Cross-Validation<a class="anchor" aria-label="anchor" href="#cross-validation"></a>
-</h4>
+<div class="section level3">
+<h3 id="cross-validation">2. Cross-Validation<a class="anchor" aria-label="anchor" href="#cross-validation"></a>
+</h3>
 <p>Create balanced CV folds:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create 5-fold CV with balanced groups</span></span>
@@ -297,9 +294,9 @@ balancing standard deviations:</p>
 <span>  <span class="co"># ... perform CV ...</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="trainingtest-split">3. Training/Test Split<a class="anchor" aria-label="anchor" href="#trainingtest-split"></a>
-</h4>
+<div class="section level3">
+<h3 id="trainingtest-split">3. Training/Test Split<a class="anchor" aria-label="anchor" href="#trainingtest-split"></a>
+</h3>
 <p>Create balanced train/test splits:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 80/20 split (approximately 19 and 5 samples)</span></span>
@@ -313,9 +310,9 @@ balancing standard deviations:</p>
 <span><span class="va">test_data</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span><span class="va">split</span><span class="op">$</span><span class="va">assignment</span><span class="op">$</span><span class="va">group</span> <span class="op">==</span> <span class="fl">2</span>, <span class="op">]</span></span></code></pre></div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="tips-and-best-practices">Tips and Best Practices<a class="anchor" aria-label="anchor" href="#tips-and-best-practices"></a>
-</h3>
+<div class="section level2">
+<h2 id="tips-and-best-practices">Tips and Best Practices<a class="anchor" aria-label="anchor" href="#tips-and-best-practices"></a>
+</h2>
 <ol style="list-style-type: decimal">
 <li>
 <strong>Data Quality</strong>: Ensure your score column has no
@@ -334,9 +331,9 @@ for reproducible results</li>
 <code>output_plot = TRUE</code> to verify balance</li>
 </ol>
 </div>
-<div class="section level3">
-<h3 id="algorithm-details">Algorithm Details<a class="anchor" aria-label="anchor" href="#algorithm-details"></a>
-</h3>
+<div class="section level2">
+<h2 id="algorithm-details">Algorithm Details<a class="anchor" aria-label="anchor" href="#algorithm-details"></a>
+</h2>
 <p>The core algorithm (<code>balance_partition_core</code>) uses a
 random search approach:</p>
 <ol style="list-style-type: decimal">
@@ -347,9 +344,9 @@ random search approach:</p>
 <p>The number of candidates (<code>B</code>) can be increased for better
 results at the cost of computation time.</p>
 </div>
-<div class="section level3">
-<h3 id="see-also">See Also<a class="anchor" aria-label="anchor" href="#see-also"></a>
-</h3>
+<div class="section level2">
+<h2 id="see-also">See Also<a class="anchor" aria-label="anchor" href="#see-also"></a>
+</h2>
 <ul>
 <li>Function reference: <code><a href="../reference/balanced_partition.html">?balanced_partition</a></code>,
 <code><a href="../reference/balance_partition_core.html">?balance_partition_core</a></code>
@@ -357,7 +354,6 @@ results at the cost of computation time.</p>
 <li><a href="https://wbvguo.github.io/Rtoolset/">Full documentation
 website</a></li>
 </ul>
-</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

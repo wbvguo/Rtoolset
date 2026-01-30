@@ -1,12 +1,10 @@
 # Utility Functions for RNA-seq Analysis
 
-## RNA-seq Analysis Workflow
-
 This vignette demonstrates a complete RNA-seq analysis workflow using
 Rtoolset functions for filtering, normalization, and preprocessing count
 data.
 
-### Overview
+## Overview
 
 Rtoolset provides functions for:
 
@@ -25,9 +23,9 @@ and
 [`get_top_var_mat()`](https://wbvguo.github.io/Rtoolset/reference/get_top_var_mat.md)
 provide flexibility for custom workflows.
 
-### Complete Workflow
+## Complete Workflow
 
-#### Step 1: Load and Prepare Data
+### Step 1: Load and Prepare Data
 
 ``` r
 library(Rtoolset)
@@ -41,7 +39,7 @@ count_df <- read.csv("count_matrix.csv", row.names = 1)
 group <- c(rep("Control", 3), rep("Treatment", 3))
 ```
 
-#### Step 2: Filter and Normalize
+### Step 2: Filter and Normalize
 
 The
 [`filter_calcpm_dge()`](https://wbvguo.github.io/Rtoolset/reference/filter_calcpm_dge.md)
@@ -62,7 +60,7 @@ result <- filter_calcpm_dge(
 )
 ```
 
-#### Step 3: Access Results
+### Step 3: Access Results
 
 The function returns a list with multiple objects:
 
@@ -83,7 +81,7 @@ result$dge_keep_cpm
 result$dge_keep_cpm_log
 ```
 
-#### Step 4: Continue with Differential Expression
+### Step 4: Continue with Differential Expression
 
 Use the filtered DGEList for downstream analysis:
 
@@ -101,9 +99,9 @@ qlf <- glmQLFTest(fit, contrast = c(-1, 1))
 top_genes <- topTags(qlf, n = 100)
 ```
 
-### Individual Functions
+## Individual Functions
 
-#### Log Transformation
+### Log Transformation
 
 For custom transformations:
 
@@ -116,7 +114,7 @@ log_data <- log_transform(
 )
 ```
 
-#### Most Variable Genes
+### Most Variable Genes
 
 Identify genes with highest variance:
 
@@ -138,9 +136,9 @@ var_result$var_genes      # Variance for all genes
 var_result$topN_mat       # Expression matrix for top genes
 ```
 
-### Filtering Parameters
+## Filtering Parameters
 
-#### min_count
+### min_count
 
 Minimum count threshold for a gene to be kept:
 
@@ -160,7 +158,7 @@ result_lenient <- filter_calcpm_dge(
 )
 ```
 
-#### min_prop
+### min_prop
 
 Minimum proportion of samples in the smallest group that must have the
 minimum count:
@@ -175,9 +173,9 @@ result <- filter_calcpm_dge(
 )
 ```
 
-### Use Cases
+## Use Cases
 
-#### 1. Standard Differential Expression Analysis
+### 1. Standard Differential Expression Analysis
 
 Complete workflow from raw counts to differential expression:
 
@@ -204,7 +202,7 @@ qlf <- glmQLFTest(fit, contrast = c(-1, 1))
 top_genes <- topTags(qlf, n = 100)
 ```
 
-#### 2. Exploratory Data Analysis
+### 2. Exploratory Data Analysis
 
 Identify most variable genes for visualization:
 
@@ -219,7 +217,7 @@ var_result <- get_top_var_mat(
 pca_data <- var_result$topN_mat
 ```
 
-#### 3. Custom Filtering Workflow
+### 3. Custom Filtering Workflow
 
 Build a custom preprocessing pipeline:
 
@@ -241,7 +239,7 @@ dge <- calcNormFactors(dge)
 cpm_data <- cpm(dge, log = TRUE, prior.count = 1)
 ```
 
-### Best Practices
+## Best Practices
 
 1.  **Group Information**: Always provide group information when
     available for better filtering
@@ -262,9 +260,9 @@ cpm_data <- cpm(dge, log = TRUE, prior.count = 1)
 7.  **Reproducibility**: Set seeds when using random processes in
     downstream analysis
 
-### Technical Details
+## Technical Details
 
-#### Filtering Strategy
+### Filtering Strategy
 
 The
 [`filter_calcpm_dge()`](https://wbvguo.github.io/Rtoolset/reference/filter_calcpm_dge.md)
@@ -277,7 +275,7 @@ function, which:
     `min_prop` proportion of samples in the smallest group
 3.  This ensures genes are expressed in a meaningful number of samples
 
-#### Normalization
+### Normalization
 
 The function uses TMM (Trimmed Mean of M-values) normalization via
 [`calcNormFactors()`](https://rdrr.io/pkg/edgeR/man/calcNormFactors.html),
@@ -287,7 +285,7 @@ which:
 - Is robust to outliers
 - Is widely used in RNA-seq analysis
 
-#### Log Transformation
+### Log Transformation
 
 The log transformation uses:
 
@@ -298,7 +296,7 @@ The log transformation uses:
 where the pseudo-count of 1 prevents log(0) and stabilizes variance for
 low counts.
 
-### Example: Complete Analysis
+## Example: Complete Analysis
 
 ``` r
 library(Rtoolset)
@@ -329,7 +327,7 @@ qlf <- glmQLFTest(fit, contrast = c(-1, 1))
 top_genes <- topTags(qlf, n = 100)
 ```
 
-### See Also
+## See Also
 
 - Function reference:
   [`?filter_calcpm_dge`](https://wbvguo.github.io/Rtoolset/reference/filter_calcpm_dge.md),

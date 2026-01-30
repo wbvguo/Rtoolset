@@ -72,15 +72,12 @@
 
     
     
-<div class="section level2">
-<h2 id="rna-seq-analysis-workflow">RNA-seq Analysis Workflow<a class="anchor" aria-label="anchor" href="#rna-seq-analysis-workflow"></a>
-</h2>
 <p>This vignette demonstrates a complete RNA-seq analysis workflow using
 Rtoolset functions for filtering, normalization, and preprocessing count
 data.</p>
-<div class="section level3">
-<h3 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
-</h3>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
 <p>Rtoolset provides functions for:</p>
 <ul>
 <li>Filtering low-expression genes</li>
@@ -96,12 +93,12 @@ individual functions like <code><a href="../reference/log_transform.html">log_tr
 <code><a href="../reference/get_top_var_mat.html">get_top_var_mat()</a></code> provide flexibility for custom
 workflows.</p>
 </div>
+<div class="section level2">
+<h2 id="complete-workflow">Complete Workflow<a class="anchor" aria-label="anchor" href="#complete-workflow"></a>
+</h2>
 <div class="section level3">
-<h3 id="complete-workflow">Complete Workflow<a class="anchor" aria-label="anchor" href="#complete-workflow"></a>
+<h3 id="step-1-load-and-prepare-data">Step 1: Load and Prepare Data<a class="anchor" aria-label="anchor" href="#step-1-load-and-prepare-data"></a>
 </h3>
-<div class="section level4">
-<h4 id="step-1-load-and-prepare-data">Step 1: Load and Prepare Data<a class="anchor" aria-label="anchor" href="#step-1-load-and-prepare-data"></a>
-</h4>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/wbvguo/Rtoolset" class="external-link">Rtoolset</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bioinf.wehi.edu.au/edgeR/" class="external-link">edgeR</a></span><span class="op">)</span></span>
@@ -113,9 +110,9 @@ workflows.</p>
 <span><span class="co"># Group information (optional)</span></span>
 <span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"Control"</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"Treatment"</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="step-2-filter-and-normalize">Step 2: Filter and Normalize<a class="anchor" aria-label="anchor" href="#step-2-filter-and-normalize"></a>
-</h4>
+<div class="section level3">
+<h3 id="step-2-filter-and-normalize">Step 2: Filter and Normalize<a class="anchor" aria-label="anchor" href="#step-2-filter-and-normalize"></a>
+</h3>
 <p>The <code><a href="../reference/filter_calcpm_dge.html">filter_calcpm_dge()</a></code> function performs multiple
 steps:</p>
 <ol style="list-style-type: decimal">
@@ -133,9 +130,9 @@ steps:</p>
 <span>  min_prop <span class="op">=</span> <span class="fl">0.1</span>       <span class="co"># Minimum proportion of samples</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="step-3-access-results">Step 3: Access Results<a class="anchor" aria-label="anchor" href="#step-3-access-results"></a>
-</h4>
+<div class="section level3">
+<h3 id="step-3-access-results">Step 3: Access Results<a class="anchor" aria-label="anchor" href="#step-3-access-results"></a>
+</h3>
 <p>The function returns a list with multiple objects:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Original DGEList (all genes)</span></span>
@@ -153,9 +150,9 @@ steps:</p>
 <span><span class="co"># Log2(CPM + 1) for filtered genes (most commonly used)</span></span>
 <span><span class="va">result</span><span class="op">$</span><span class="va">dge_keep_cpm_log</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="step-4-continue-with-differential-expression">Step 4: Continue with Differential Expression<a class="anchor" aria-label="anchor" href="#step-4-continue-with-differential-expression"></a>
-</h4>
+<div class="section level3">
+<h3 id="step-4-continue-with-differential-expression">Step 4: Continue with Differential Expression<a class="anchor" aria-label="anchor" href="#step-4-continue-with-differential-expression"></a>
+</h3>
 <p>Use the filtered DGEList for downstream analysis:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Estimate dispersions</span></span>
@@ -171,12 +168,12 @@ steps:</p>
 <span><span class="va">top_genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/edgeR/man/topTags.html" class="external-link">topTags</a></span><span class="op">(</span><span class="va">qlf</span>, n <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
+<div class="section level2">
+<h2 id="individual-functions">Individual Functions<a class="anchor" aria-label="anchor" href="#individual-functions"></a>
+</h2>
 <div class="section level3">
-<h3 id="individual-functions">Individual Functions<a class="anchor" aria-label="anchor" href="#individual-functions"></a>
+<h3 id="log-transformation">Log Transformation<a class="anchor" aria-label="anchor" href="#log-transformation"></a>
 </h3>
-<div class="section level4">
-<h4 id="log-transformation">Log Transformation<a class="anchor" aria-label="anchor" href="#log-transformation"></a>
-</h4>
 <p>For custom transformations:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Log transform with custom parameters</span></span>
@@ -186,9 +183,9 @@ steps:</p>
 <span>  base <span class="op">=</span> <span class="fl">2</span>      <span class="co"># Log base</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="most-variable-genes">Most Variable Genes<a class="anchor" aria-label="anchor" href="#most-variable-genes"></a>
-</h4>
+<div class="section level3">
+<h3 id="most-variable-genes">Most Variable Genes<a class="anchor" aria-label="anchor" href="#most-variable-genes"></a>
+</h3>
 <p>Identify genes with highest variance:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Get top 20% most variable genes</span></span>
@@ -208,12 +205,12 @@ steps:</p>
 <span><span class="va">var_result</span><span class="op">$</span><span class="va">topN_mat</span>       <span class="co"># Expression matrix for top genes</span></span></code></pre></div>
 </div>
 </div>
+<div class="section level2">
+<h2 id="filtering-parameters">Filtering Parameters<a class="anchor" aria-label="anchor" href="#filtering-parameters"></a>
+</h2>
 <div class="section level3">
-<h3 id="filtering-parameters">Filtering Parameters<a class="anchor" aria-label="anchor" href="#filtering-parameters"></a>
+<h3 id="min_count">min_count<a class="anchor" aria-label="anchor" href="#min_count"></a>
 </h3>
-<div class="section level4">
-<h4 id="min_count">min_count<a class="anchor" aria-label="anchor" href="#min_count"></a>
-</h4>
 <p>Minimum count threshold for a gene to be kept:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Stricter filtering (keep only highly expressed genes)</span></span>
@@ -230,9 +227,9 @@ steps:</p>
 <span>  min_prop <span class="op">=</span> <span class="fl">0.1</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="min_prop">min_prop<a class="anchor" aria-label="anchor" href="#min_prop"></a>
-</h4>
+<div class="section level3">
+<h3 id="min_prop">min_prop<a class="anchor" aria-label="anchor" href="#min_prop"></a>
+</h3>
 <p>Minimum proportion of samples in the smallest group that must have
 the minimum count:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -245,12 +242,12 @@ the minimum count:</p>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
+<div class="section level2">
+<h2 id="use-cases">Use Cases<a class="anchor" aria-label="anchor" href="#use-cases"></a>
+</h2>
 <div class="section level3">
-<h3 id="use-cases">Use Cases<a class="anchor" aria-label="anchor" href="#use-cases"></a>
+<h3 id="standard-differential-expression-analysis">1. Standard Differential Expression Analysis<a class="anchor" aria-label="anchor" href="#standard-differential-expression-analysis"></a>
 </h3>
-<div class="section level4">
-<h4 id="standard-differential-expression-analysis">1. Standard Differential Expression Analysis<a class="anchor" aria-label="anchor" href="#standard-differential-expression-analysis"></a>
-</h4>
 <p>Complete workflow from raw counts to differential expression:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/wbvguo/Rtoolset" class="external-link">Rtoolset</a></span><span class="op">)</span></span>
@@ -274,9 +271,9 @@ the minimum count:</p>
 <span><span class="va">qlf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/edgeR/man/glmQLFTest.html" class="external-link">glmQLFTest</a></span><span class="op">(</span><span class="va">fit</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">top_genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/edgeR/man/topTags.html" class="external-link">topTags</a></span><span class="op">(</span><span class="va">qlf</span>, n <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="exploratory-data-analysis">2. Exploratory Data Analysis<a class="anchor" aria-label="anchor" href="#exploratory-data-analysis"></a>
-</h4>
+<div class="section level3">
+<h3 id="exploratory-data-analysis">2. Exploratory Data Analysis<a class="anchor" aria-label="anchor" href="#exploratory-data-analysis"></a>
+</h3>
 <p>Identify most variable genes for visualization:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Get top variable genes</span></span>
@@ -288,9 +285,9 @@ the minimum count:</p>
 <span><span class="co"># Use for PCA or clustering</span></span>
 <span><span class="va">pca_data</span> <span class="op">&lt;-</span> <span class="va">var_result</span><span class="op">$</span><span class="va">topN_mat</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="custom-filtering-workflow">3. Custom Filtering Workflow<a class="anchor" aria-label="anchor" href="#custom-filtering-workflow"></a>
-</h4>
+<div class="section level3">
+<h3 id="custom-filtering-workflow">3. Custom Filtering Workflow<a class="anchor" aria-label="anchor" href="#custom-filtering-workflow"></a>
+</h3>
 <p>Build a custom preprocessing pipeline:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Custom log transformation</span></span>
@@ -310,9 +307,9 @@ the minimum count:</p>
 <span><span class="va">cpm_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/edgeR/man/cpm.html" class="external-link">cpm</a></span><span class="op">(</span><span class="va">dge</span>, log <span class="op">=</span> <span class="cn">TRUE</span>, prior.count <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="best-practices">Best Practices<a class="anchor" aria-label="anchor" href="#best-practices"></a>
-</h3>
+<div class="section level2">
+<h2 id="best-practices">Best Practices<a class="anchor" aria-label="anchor" href="#best-practices"></a>
+</h2>
 <ol style="list-style-type: decimal">
 <li>
 <strong>Group Information</strong>: Always provide group information
@@ -346,12 +343,12 @@ rebuilds</li>
 processes in downstream analysis</li>
 </ol>
 </div>
+<div class="section level2">
+<h2 id="technical-details">Technical Details<a class="anchor" aria-label="anchor" href="#technical-details"></a>
+</h2>
 <div class="section level3">
-<h3 id="technical-details">Technical Details<a class="anchor" aria-label="anchor" href="#technical-details"></a>
+<h3 id="filtering-strategy">Filtering Strategy<a class="anchor" aria-label="anchor" href="#filtering-strategy"></a>
 </h3>
-<div class="section level4">
-<h4 id="filtering-strategy">Filtering Strategy<a class="anchor" aria-label="anchor" href="#filtering-strategy"></a>
-</h4>
 <p>The <code><a href="../reference/filter_calcpm_dge.html">filter_calcpm_dge()</a></code> function uses edgeR’s
 <code><a href="https://rdrr.io/pkg/edgeR/man/filterByExpr.html" class="external-link">filterByExpr()</a></code> function, which:</p>
 <ol style="list-style-type: decimal">
@@ -363,9 +360,9 @@ group</li>
 samples</li>
 </ol>
 </div>
-<div class="section level4">
-<h4 id="normalization">Normalization<a class="anchor" aria-label="anchor" href="#normalization"></a>
-</h4>
+<div class="section level3">
+<h3 id="normalization">Normalization<a class="anchor" aria-label="anchor" href="#normalization"></a>
+</h3>
 <p>The function uses TMM (Trimmed Mean of M-values) normalization via
 <code><a href="https://rdrr.io/pkg/edgeR/man/calcNormFactors.html" class="external-link">calcNormFactors()</a></code>, which:</p>
 <ul>
@@ -374,18 +371,18 @@ samples</li>
 <li>Is widely used in RNA-seq analysis</li>
 </ul>
 </div>
-<div class="section level4">
-<h4 id="log-transformation-1">Log Transformation<a class="anchor" aria-label="anchor" href="#log-transformation-1"></a>
-</h4>
+<div class="section level3">
+<h3 id="log-transformation-1">Log Transformation<a class="anchor" aria-label="anchor" href="#log-transformation-1"></a>
+</h3>
 <p>The log transformation uses:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtext mathvariant="normal">log2(CPM + 1)</mtext><annotation encoding="application/x-tex">\text{log2(CPM + 1)}</annotation></semantics></math></p>
 <p>where the pseudo-count of 1 prevents log(0) and stabilizes variance
 for low counts.</p>
 </div>
 </div>
-<div class="section level3">
-<h3 id="example-complete-analysis">Example: Complete Analysis<a class="anchor" aria-label="anchor" href="#example-complete-analysis"></a>
-</h3>
+<div class="section level2">
+<h2 id="example-complete-analysis">Example: Complete Analysis<a class="anchor" aria-label="anchor" href="#example-complete-analysis"></a>
+</h2>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/wbvguo/Rtoolset" class="external-link">Rtoolset</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bioinf.wehi.edu.au/edgeR/" class="external-link">edgeR</a></span><span class="op">)</span></span>
@@ -414,9 +411,9 @@ for low counts.</p>
 <span><span class="va">qlf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/edgeR/man/glmQLFTest.html" class="external-link">glmQLFTest</a></span><span class="op">(</span><span class="va">fit</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">top_genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/edgeR/man/topTags.html" class="external-link">topTags</a></span><span class="op">(</span><span class="va">qlf</span>, n <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="see-also">See Also<a class="anchor" aria-label="anchor" href="#see-also"></a>
-</h3>
+<div class="section level2">
+<h2 id="see-also">See Also<a class="anchor" aria-label="anchor" href="#see-also"></a>
+</h2>
 <ul>
 <li>Function reference: <code><a href="../reference/filter_calcpm_dge.html">?filter_calcpm_dge</a></code>,
 <code><a href="../reference/log_transform.html">?log_transform</a></code>, <code><a href="../reference/get_top_var_mat.html">?get_top_var_mat</a></code>
@@ -427,7 +424,6 @@ for low counts.</p>
 <li><a href="https://wbvguo.github.io/Rtoolset/">Full documentation
 website</a></li>
 </ul>
-</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

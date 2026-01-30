@@ -72,16 +72,13 @@
 
     
     
-<div class="section level2">
-<h2 id="data-visualization-with-rtoolset">Data Visualization with Rtoolset<a class="anchor" aria-label="anchor" href="#data-visualization-with-rtoolset"></a>
-</h2>
 <p>Rtoolset provides several functions for creating beautiful
 visualizations, including animated GIFs, heart shapes, and LEGO mosaics.
 These tools are perfect for creating engaging presentations, social
 media content, or fun visualizations.</p>
-<div class="section level3">
-<h3 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
-</h3>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
 <p>The visualization functions in Rtoolset include:</p>
 <ul>
 <li>
@@ -97,12 +94,12 @@ animations showing LEGO build processes</li>
 <p>All visualization functions support extensive customization including
 colors, dimensions, text, and animation parameters.</p>
 </div>
+<div class="section level2">
+<h2 id="animated-christmas-tree">Animated Christmas Tree<a class="anchor" aria-label="anchor" href="#animated-christmas-tree"></a>
+</h2>
 <div class="section level3">
-<h3 id="animated-christmas-tree">Animated Christmas Tree<a class="anchor" aria-label="anchor" href="#animated-christmas-tree"></a>
+<h3 id="basic-usage">Basic Usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
 </h3>
-<div class="section level4">
-<h4 id="basic-usage">Basic Usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
-</h4>
 <p>Create an animated Christmas tree GIF:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/wbvguo/Rtoolset" class="external-link">Rtoolset</a></span><span class="op">)</span></span>
@@ -115,16 +112,16 @@ colors, dimensions, text, and animation parameters.</p>
 <span>  show <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="panel-style-animation">Panel-Style Animation<a class="anchor" aria-label="anchor" href="#panel-style-animation"></a>
-</h4>
+<div class="section level3">
+<h3 id="panel-style-animation">Panel-Style Animation<a class="anchor" aria-label="anchor" href="#panel-style-animation"></a>
+</h3>
 <p>Create a panel-style animation showing multiple frames:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/draw_xmas_tree_gif_panel.html">draw_xmas_tree_gif_panel</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="available-styles">Available Styles<a class="anchor" aria-label="anchor" href="#available-styles"></a>
-</h4>
+<div class="section level3">
+<h3 id="available-styles">Available Styles<a class="anchor" aria-label="anchor" href="#available-styles"></a>
+</h3>
 <p>The <code><a href="../reference/draw_xmas_tree_gif.html">draw_xmas_tree_gif()</a></code> function supports multiple
 built-in styles:</p>
 <ul>
@@ -154,9 +151,9 @@ colors</li>
 <code>"olive earth"</code> or <code>10</code>: Earth tones</li>
 </ul>
 </div>
-<div class="section level4">
-<h4 id="customization">Customization<a class="anchor" aria-label="anchor" href="#customization"></a>
-</h4>
+<div class="section level3">
+<h3 id="customization">Customization<a class="anchor" aria-label="anchor" href="#customization"></a>
+</h3>
 <p>You can customize various aspects of the tree:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/draw_xmas_tree_gif.html">draw_xmas_tree_gif</a></span><span class="op">(</span></span>
@@ -173,12 +170,12 @@ colors</li>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
+<div class="section level2">
+<h2 id="heart-shape-visualizations">Heart Shape Visualizations<a class="anchor" aria-label="anchor" href="#heart-shape-visualizations"></a>
+</h2>
 <div class="section level3">
-<h3 id="heart-shape-visualizations">Heart Shape Visualizations<a class="anchor" aria-label="anchor" href="#heart-shape-visualizations"></a>
+<h3 id="creating-a-2d-heart">Creating a 2D Heart<a class="anchor" aria-label="anchor" href="#creating-a-2d-heart"></a>
 </h3>
-<div class="section level4">
-<h4 id="creating-a-2d-heart">Creating a 2D Heart<a class="anchor" aria-label="anchor" href="#creating-a-2d-heart"></a>
-</h4>
 <p>Draw a simple 2D heart shape:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Draw and save a heart</span></span>
@@ -195,9 +192,9 @@ colors</li>
 <span><span class="va">heart_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/draw_heart.html">draw_heart</a></span><span class="op">(</span>out_png <span class="op">=</span> <span class="cn">NULL</span>, fill <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">heart_plot</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="converting-to-lego-mosaic">Converting to LEGO Mosaic<a class="anchor" aria-label="anchor" href="#converting-to-lego-mosaic"></a>
-</h4>
+<div class="section level3">
+<h3 id="converting-to-lego-mosaic">Converting to LEGO Mosaic<a class="anchor" aria-label="anchor" href="#converting-to-lego-mosaic"></a>
+</h3>
 <p>Convert a heart image to a LEGO mosaic with build steps:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Using a ggplot object</span></span>
@@ -220,9 +217,9 @@ GitHub:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ryantimpe/brickr"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="creating-animated-build-gifs">Creating Animated Build GIFs<a class="anchor" aria-label="anchor" href="#creating-animated-build-gifs"></a>
-</h4>
+<div class="section level3">
+<h3 id="creating-animated-build-gifs">Creating Animated Build GIFs<a class="anchor" aria-label="anchor" href="#creating-animated-build-gifs"></a>
+</h3>
 <p>Create an animated GIF showing the step-by-step build process:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create steps first</span></span>
@@ -248,12 +245,12 @@ GitHub:</p>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
+<div class="section level2">
+<h2 id="use-cases">Use Cases<a class="anchor" aria-label="anchor" href="#use-cases"></a>
+</h2>
 <div class="section level3">
-<h3 id="use-cases">Use Cases<a class="anchor" aria-label="anchor" href="#use-cases"></a>
+<h3 id="holiday-greetings">1. Holiday Greetings<a class="anchor" aria-label="anchor" href="#holiday-greetings"></a>
 </h3>
-<div class="section level4">
-<h4 id="holiday-greetings">1. Holiday Greetings<a class="anchor" aria-label="anchor" href="#holiday-greetings"></a>
-</h4>
 <p>Create personalized holiday animations:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a personalized Christmas tree</span></span>
@@ -266,9 +263,9 @@ GitHub:</p>
 <span>  show <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="social-media-content">2. Social Media Content<a class="anchor" aria-label="anchor" href="#social-media-content"></a>
-</h4>
+<div class="section level3">
+<h3 id="social-media-content">2. Social Media Content<a class="anchor" aria-label="anchor" href="#social-media-content"></a>
+</h3>
 <p>Generate eye-catching visualizations for social media:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a vibrant heart for Valentine's Day</span></span>
@@ -280,9 +277,9 @@ GitHub:</p>
 <span>  height <span class="op">=</span> <span class="fl">8</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="educational-demonstrations">3. Educational Demonstrations<a class="anchor" aria-label="anchor" href="#educational-demonstrations"></a>
-</h4>
+<div class="section level3">
+<h3 id="educational-demonstrations">3. Educational Demonstrations<a class="anchor" aria-label="anchor" href="#educational-demonstrations"></a>
+</h3>
 <p>Show step-by-step build processes:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create an educational GIF showing build steps</span></span>
@@ -301,9 +298,9 @@ GitHub:</p>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="tips-and-best-practices">Tips and Best Practices<a class="anchor" aria-label="anchor" href="#tips-and-best-practices"></a>
-</h3>
+<div class="section level2">
+<h2 id="tips-and-best-practices">Tips and Best Practices<a class="anchor" aria-label="anchor" href="#tips-and-best-practices"></a>
+</h2>
 <ol style="list-style-type: decimal">
 <li>
 <strong>File Formats</strong>:
@@ -349,9 +346,9 @@ GitHub:</p>
 </li>
 </ol>
 </div>
-<div class="section level3">
-<h3 id="see-also">See Also<a class="anchor" aria-label="anchor" href="#see-also"></a>
-</h3>
+<div class="section level2">
+<h2 id="see-also">See Also<a class="anchor" aria-label="anchor" href="#see-also"></a>
+</h2>
 <ul>
 <li>Function reference: <code><a href="../reference/draw_xmas_tree_gif.html">?draw_xmas_tree_gif</a></code>,
 <code><a href="../reference/draw_heart.html">?draw_heart</a></code>, <code><a href="../reference/draw_heart_step.html">?draw_heart_step</a></code>
@@ -359,7 +356,6 @@ GitHub:</p>
 <li><a href="https://wbvguo.github.io/Rtoolset/">Full documentation
 website</a></li>
 </ul>
-</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

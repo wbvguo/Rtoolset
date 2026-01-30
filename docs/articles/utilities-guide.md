@@ -1,13 +1,11 @@
 # Utility Functions Guide
 
-## Utility Functions Guide
-
 Rtoolset provides a collection of utility functions for common tasks in
 R programming and data analysis. These functions help streamline
 workflows, improve code readability, and handle common programming
 challenges.
 
-### Overview
+## Overview
 
 This guide covers utility functions organized by category:
 
@@ -22,9 +20,9 @@ This guide covers utility functions organized by category:
 - **Package Management**: Unified interface for installing packages from
   multiple sources
 
-### String Matching
+## String Matching
 
-#### closestMatch()
+### closestMatch()
 
 Find the closest match for a string using Levenshtein distance. Useful
 for matching gene names, IDs, or any strings with potential typos.
@@ -48,9 +46,9 @@ tied) - Indices of matches in the vector
 **Use Cases**: - Matching gene names with typos - Finding similar
 identifiers - Fuzzy string matching
 
-### Formatting & Printing
+## Formatting & Printing
 
-#### print_pval()
+### print_pval()
 
 Format p-values for readability in reports and publications.
 
@@ -74,7 +72,7 @@ print_pval(c(0.0101, 0.00003), rm_tailing0 = FALSE)
 #> [1] "0.0101"   "3.00e-05"
 ```
 
-#### vec2print()
+### vec2print()
 
 Print vectors in copy-paste friendly format for different languages.
 
@@ -95,9 +93,9 @@ vec2print(c("Apple", "Orange", "Banana"), lang = "shell")
 **Use Cases**: - Quick code generation - Copying vectors between
 languages - Creating configuration files
 
-### File & Directory Management
+## File & Directory Management
 
-#### mkdir()
+### mkdir()
 
 Create a directory if it doesn’t exist. Automatically creates parent
 directories.
@@ -110,7 +108,7 @@ mkdir("~/my_project/results/")
 mkdir("~/project/data/raw/2024/")
 ```
 
-#### save2pdf()
+### save2pdf()
 
 Save plots to PDF with automatic file management and append capability.
 
@@ -144,9 +142,9 @@ overwrites (creates numbered files) - Can append multiple plots to one
 PDF - Supports all [`pdf()`](https://rdrr.io/r/grDevices/pdf.html)
 arguments (width, height, etc.)
 
-### Function Utilities
+## Function Utilities
 
-#### extract_params()
+### extract_params()
 
 Extract default parameters from functions for debugging.
 
@@ -163,7 +161,7 @@ extract_params(my_function, verbose = TRUE)
 **Use Cases**: - Quick debugging - Understanding function defaults -
 Documentation
 
-#### createNamedList()
+### createNamedList()
 
 Create a named list from a character vector.
 
@@ -198,9 +196,9 @@ my_list
 **Use Cases**: - Initializing lists with known names - Creating
 structured data containers
 
-### Package Management
+## Package Management
 
-#### install_packages()
+### install_packages()
 
 Install packages from CRAN, Bioconductor, or GitHub with a unified
 interface.
@@ -227,7 +225,7 @@ install_packages(
 `force = TRUE`) - Handles dependencies automatically - Works with CRAN,
 Bioconductor, and GitHub
 
-#### check_packages()
+### check_packages()
 
 Check if packages are installed.
 
@@ -238,9 +236,9 @@ check_packages(c("dplyr", "ggplot2", "nonexistent"))
 
 Returns a logical vector indicating which packages are installed.
 
-### Use Cases
+## Use Cases
 
-#### 1. Gene Name Matching
+### 1. Gene Name Matching
 
 When working with gene names that may have typos or variations:
 
@@ -252,7 +250,7 @@ match_result <- closestMatch(query, gene_names)
 match_result
 ```
 
-#### 2. Publication-Ready Tables
+### 2. Publication-Ready Tables
 
 Format p-values for manuscripts and reports:
 
@@ -266,7 +264,7 @@ data.frame(
 )
 ```
 
-#### 3. Multi-Language Code Generation
+### 3. Multi-Language Code Generation
 
 Generate code snippets for different languages:
 
@@ -279,7 +277,7 @@ vec2print(samples, lang = "r")
 vec2print(samples, lang = "python")
 ```
 
-### Tips and Best Practices
+## Tips and Best Practices
 
 1.  **String Matching**: Use
     [`closestMatch()`](https://wbvguo.github.io/Rtoolset/reference/closestMatch.md)
@@ -300,7 +298,7 @@ vec2print(samples, lang = "python")
     are safe to call multiple times without errors
 6.  **Performance**: Caching is enabled for faster vignette rebuilds
 
-### See Also
+## See Also
 
 - Function reference:
   [`?closestMatch`](https://wbvguo.github.io/Rtoolset/reference/closestMatch.md),

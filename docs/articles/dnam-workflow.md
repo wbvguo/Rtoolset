@@ -1,11 +1,9 @@
 # Utility Functions for DNA Methylation Analysis
 
-## DNA Methylation Analysis Workflow
-
 This vignette demonstrates DNA methylation data preprocessing using
 Rtoolset functions.
 
-### Overview
+## Overview
 
 DNA methylation data is typically represented as beta values (ranging
 from 0 to 1), but many statistical analyses require M values
@@ -16,9 +14,9 @@ function in Rtoolset provides a simple and efficient way to convert beta
 values to M values, handling edge cases (0 and 1) and preserving data
 structure.
 
-### Beta to M Value Conversion
+## Beta to M Value Conversion
 
-#### Basic Usage
+### Basic Usage
 
 The [`beta2M()`](https://wbvguo.github.io/Rtoolset/reference/beta2M.md)
 function converts beta values to M values:
@@ -37,7 +35,7 @@ M_values
 #> [1] -3.169912  0.000000  3.169912 -6.629214  6.629214
 ```
 
-#### Matrix or Data Frame
+### Matrix or Data Frame
 
 ``` r
 # Matrix input
@@ -57,7 +55,7 @@ beta_df <- data.frame(
 M_df <- beta2M(beta_df)
 ```
 
-#### Custom Alpha Parameter
+### Custom Alpha Parameter
 
 The `alpha` parameter prevents log(0) when beta values are exactly 0 or
 1:
@@ -72,7 +70,7 @@ beta2M(c(0, 0.5, 1), alpha = 1e-8)
 #> [1] -26.57542   0.00000  26.57542
 ```
 
-### Why Convert to M Values?
+## Why Convert to M Values?
 
 M values have several advantages for statistical analysis:
 
@@ -82,7 +80,7 @@ M values have several advantages for statistical analysis:
 3.  **Better for linear models**: More suitable for regression and
     differential analysis
 
-### Complete Workflow Example
+## Complete Workflow Example
 
 ``` r
 library(Rtoolset)
@@ -100,9 +98,9 @@ M_data <- beta2M(beta_data)
 # - etc.
 ```
 
-### Use Cases
+## Use Cases
 
-#### 1. Illumina Array Data
+### 1. Illumina Array Data
 
 Convert beta values from Illumina methylation arrays:
 
@@ -119,7 +117,7 @@ dim(M_data)
 colnames(M_data)  # Column names preserved
 ```
 
-#### 2. Differential Methylation Analysis
+### 2. Differential Methylation Analysis
 
 Prepare data for differential analysis with limma:
 
@@ -140,7 +138,7 @@ fit <- eBayes(fit)
 top_sites <- topTable(fit, coef = 2, number = 100)
 ```
 
-#### 3. Quality Control
+### 3. Quality Control
 
 Check for problematic beta values before conversion:
 
@@ -153,7 +151,7 @@ cat("Number of extreme beta values (0 or 1):", extreme_beta, "\n")
 M_data <- beta2M(beta_data, alpha = 1e-6)
 ```
 
-### Best Practices
+## Best Practices
 
 1.  **Check for extreme values**: Beta values of exactly 0 or 1 may
     indicate technical issues
@@ -166,9 +164,9 @@ M_data <- beta2M(beta_data, alpha = 1e-6)
     your analysis
 6.  **Performance**: Caching is enabled for faster vignette rebuilds
 
-### Technical Details
+## Technical Details
 
-#### Conversion Formula
+### Conversion Formula
 
 The conversion from beta to M values uses the logit transformation:
 
@@ -180,7 +178,7 @@ where: - $`\beta`$ is the beta value (0 to 1) - $`\alpha`$ is a small
 constant (default: 1e-6) to prevent log(0) - $`M`$ is the resulting M
 value
 
-#### Why M Values?
+### Why M Values?
 
 1.  **Normal Distribution**: M values are approximately normally
     distributed, making them suitable for parametric tests
@@ -191,7 +189,7 @@ value
 4.  **Symmetric Scale**: M values range from $`-\infty`$ to $`+\infty`$,
     centered around 0
 
-### Integration with Other Packages
+## Integration with Other Packages
 
 M values work well with:
 
@@ -218,7 +216,7 @@ fit <- eBayes(fit)
 top_genes <- topTable(fit, coef = 2, number = 100)
 ```
 
-### See Also
+## See Also
 
 - Function reference:
   [`?beta2M`](https://wbvguo.github.io/Rtoolset/reference/beta2M.md)

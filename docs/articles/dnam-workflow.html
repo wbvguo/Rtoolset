@@ -72,14 +72,11 @@
 
     
     
-<div class="section level2">
-<h2 id="dna-methylation-analysis-workflow">DNA Methylation Analysis Workflow<a class="anchor" aria-label="anchor" href="#dna-methylation-analysis-workflow"></a>
-</h2>
 <p>This vignette demonstrates DNA methylation data preprocessing using
 Rtoolset functions.</p>
-<div class="section level3">
-<h3 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
-</h3>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
 <p>DNA methylation data is typically represented as beta values (ranging
 from 0 to 1), but many statistical analyses require M values
 (logit-transformed beta values) for better statistical properties.</p>
@@ -87,12 +84,12 @@ from 0 to 1), but many statistical analyses require M values
 efficient way to convert beta values to M values, handling edge cases (0
 and 1) and preserving data structure.</p>
 </div>
+<div class="section level2">
+<h2 id="beta-to-m-value-conversion">Beta to M Value Conversion<a class="anchor" aria-label="anchor" href="#beta-to-m-value-conversion"></a>
+</h2>
 <div class="section level3">
-<h3 id="beta-to-m-value-conversion">Beta to M Value Conversion<a class="anchor" aria-label="anchor" href="#beta-to-m-value-conversion"></a>
+<h3 id="basic-usage">Basic Usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
 </h3>
-<div class="section level4">
-<h4 id="basic-usage">Basic Usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
-</h4>
 <p>The <code><a href="../reference/beta2M.html">beta2M()</a></code> function converts beta values to M
 values:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -108,9 +105,9 @@ values:</p>
 <span><span class="va">M_values</span></span>
 <span><span class="co">#&gt; [1] -3.169912  0.000000  3.169912 -6.629214  6.629214</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="matrix-or-data-frame">Matrix or Data Frame<a class="anchor" aria-label="anchor" href="#matrix-or-data-frame"></a>
-</h4>
+<div class="section level3">
+<h3 id="matrix-or-data-frame">Matrix or Data Frame<a class="anchor" aria-label="anchor" href="#matrix-or-data-frame"></a>
+</h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Matrix input</span></span>
 <span><span class="va">beta_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span></span>
@@ -128,9 +125,9 @@ values:</p>
 <span><span class="op">)</span></span>
 <span><span class="va">M_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/beta2M.html">beta2M</a></span><span class="op">(</span><span class="va">beta_df</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="custom-alpha-parameter">Custom Alpha Parameter<a class="anchor" aria-label="anchor" href="#custom-alpha-parameter"></a>
-</h4>
+<div class="section level3">
+<h3 id="custom-alpha-parameter">Custom Alpha Parameter<a class="anchor" aria-label="anchor" href="#custom-alpha-parameter"></a>
+</h3>
 <p>The <code>alpha</code> parameter prevents log(0) when beta values are
 exactly 0 or 1:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -143,9 +140,9 @@ exactly 0 or 1:</p>
 <span><span class="co">#&gt; [1] -26.57542   0.00000  26.57542</span></span></code></pre></div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="why-convert-to-m-values">Why Convert to M Values?<a class="anchor" aria-label="anchor" href="#why-convert-to-m-values"></a>
-</h3>
+<div class="section level2">
+<h2 id="why-convert-to-m-values">Why Convert to M Values?<a class="anchor" aria-label="anchor" href="#why-convert-to-m-values"></a>
+</h2>
 <p>M values have several advantages for statistical analysis:</p>
 <ol style="list-style-type: decimal">
 <li>
@@ -159,9 +156,9 @@ the range</li>
 regression and differential analysis</li>
 </ol>
 </div>
-<div class="section level3">
-<h3 id="complete-workflow-example">Complete Workflow Example<a class="anchor" aria-label="anchor" href="#complete-workflow-example"></a>
-</h3>
+<div class="section level2">
+<h2 id="complete-workflow-example">Complete Workflow Example<a class="anchor" aria-label="anchor" href="#complete-workflow-example"></a>
+</h2>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/wbvguo/Rtoolset" class="external-link">Rtoolset</a></span><span class="op">)</span></span>
 <span></span>
@@ -177,12 +174,12 @@ regression and differential analysis</li>
 <span><span class="co"># - Visualization</span></span>
 <span><span class="co"># - etc.</span></span></code></pre></div>
 </div>
+<div class="section level2">
+<h2 id="use-cases">Use Cases<a class="anchor" aria-label="anchor" href="#use-cases"></a>
+</h2>
 <div class="section level3">
-<h3 id="use-cases">Use Cases<a class="anchor" aria-label="anchor" href="#use-cases"></a>
+<h3 id="illumina-array-data">1. Illumina Array Data<a class="anchor" aria-label="anchor" href="#illumina-array-data"></a>
 </h3>
-<div class="section level4">
-<h4 id="illumina-array-data">1. Illumina Array Data<a class="anchor" aria-label="anchor" href="#illumina-array-data"></a>
-</h4>
 <p>Convert beta values from Illumina methylation arrays:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load Illumina array data (beta values)</span></span>
@@ -196,9 +193,9 @@ regression and differential analysis</li>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">M_data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">M_data</span><span class="op">)</span>  <span class="co"># Column names preserved</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="differential-methylation-analysis">2. Differential Methylation Analysis<a class="anchor" aria-label="anchor" href="#differential-methylation-analysis"></a>
-</h4>
+<div class="section level3">
+<h3 id="differential-methylation-analysis">2. Differential Methylation Analysis<a class="anchor" aria-label="anchor" href="#differential-methylation-analysis"></a>
+</h3>
 <p>Prepare data for differential analysis with limma:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bioinf.wehi.edu.au/limma/" class="external-link">limma</a></span><span class="op">)</span></span>
@@ -216,9 +213,9 @@ regression and differential analysis</li>
 <span><span class="co"># Get top differentially methylated sites</span></span>
 <span><span class="va">top_sites</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/limma/man/toptable.html" class="external-link">topTable</a></span><span class="op">(</span><span class="va">fit</span>, coef <span class="op">=</span> <span class="fl">2</span>, number <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="quality-control">3. Quality Control<a class="anchor" aria-label="anchor" href="#quality-control"></a>
-</h4>
+<div class="section level3">
+<h3 id="quality-control">3. Quality Control<a class="anchor" aria-label="anchor" href="#quality-control"></a>
+</h3>
 <p>Check for problematic beta values before conversion:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Check for extreme values</span></span>
@@ -229,9 +226,9 @@ regression and differential analysis</li>
 <span><span class="va">M_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/beta2M.html">beta2M</a></span><span class="op">(</span><span class="va">beta_data</span>, alpha <span class="op">=</span> <span class="fl">1e-6</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="best-practices">Best Practices<a class="anchor" aria-label="anchor" href="#best-practices"></a>
-</h3>
+<div class="section level2">
+<h2 id="best-practices">Best Practices<a class="anchor" aria-label="anchor" href="#best-practices"></a>
+</h2>
 <ol style="list-style-type: decimal">
 <li>
 <strong>Check for extreme values</strong>: Beta values of exactly 0
@@ -253,12 +250,12 @@ parameter used in your analysis</li>
 rebuilds</li>
 </ol>
 </div>
+<div class="section level2">
+<h2 id="technical-details">Technical Details<a class="anchor" aria-label="anchor" href="#technical-details"></a>
+</h2>
 <div class="section level3">
-<h3 id="technical-details">Technical Details<a class="anchor" aria-label="anchor" href="#technical-details"></a>
+<h3 id="conversion-formula">Conversion Formula<a class="anchor" aria-label="anchor" href="#conversion-formula"></a>
 </h3>
-<div class="section level4">
-<h4 id="conversion-formula">Conversion Formula<a class="anchor" aria-label="anchor" href="#conversion-formula"></a>
-</h4>
 <p>The conversion from beta to M values uses the logit
 transformation:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><msub><mo>log</mo><mn>2</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mrow><mi>β</mi><mo>+</mo><mi>α</mi></mrow><mrow><mn>1</mn><mo>−</mo><mi>β</mi><mo>+</mo><mi>α</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">M = \log_2\left(\frac{\beta + \alpha}{1 - \beta + \alpha}\right)</annotation></semantics></math></p>
@@ -270,9 +267,9 @@ is a small constant (default: 1e-6) to prevent log(0) -
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
 is the resulting M value</p>
 </div>
-<div class="section level4">
-<h4 id="why-m-values">Why M Values?<a class="anchor" aria-label="anchor" href="#why-m-values"></a>
-</h4>
+<div class="section level3">
+<h3 id="why-m-values">Why M Values?<a class="anchor" aria-label="anchor" href="#why-m-values"></a>
+</h3>
 <ol style="list-style-type: decimal">
 <li>
 <strong>Normal Distribution</strong>: M values are approximately
@@ -292,9 +289,9 @@ centered around 0</li>
 </ol>
 </div>
 </div>
-<div class="section level3">
-<h3 id="integration-with-other-packages">Integration with Other Packages<a class="anchor" aria-label="anchor" href="#integration-with-other-packages"></a>
-</h3>
+<div class="section level2">
+<h2 id="integration-with-other-packages">Integration with Other Packages<a class="anchor" aria-label="anchor" href="#integration-with-other-packages"></a>
+</h2>
 <p>M values work well with:</p>
 <ul>
 <li>
@@ -324,16 +321,15 @@ sequencing data</li>
 <span><span class="co"># Get differentially methylated sites</span></span>
 <span><span class="va">top_genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/limma/man/toptable.html" class="external-link">topTable</a></span><span class="op">(</span><span class="va">fit</span>, coef <span class="op">=</span> <span class="fl">2</span>, number <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="see-also">See Also<a class="anchor" aria-label="anchor" href="#see-also"></a>
-</h3>
+<div class="section level2">
+<h2 id="see-also">See Also<a class="anchor" aria-label="anchor" href="#see-also"></a>
+</h2>
 <ul>
 <li>Function reference: <code><a href="../reference/beta2M.html">?beta2M</a></code>
 </li>
 <li><a href="https://wbvguo.github.io/Rtoolset/">Full documentation
 website</a></li>
 </ul>
-</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
