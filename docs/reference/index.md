@@ -2,7 +2,9 @@
 
 ## Sample Operations
 
-Functions that operate on samples/observations
+Functions that operate on samples/observations. See the [Sample
+partition](https://wbvguo.github.io/Rtoolset/reference/articles/sample-partition.md)
+vignette.
 
 - [`balanced_partition()`](https://wbvguo.github.io/Rtoolset/reference/balanced_partition.md)
   : Balanced partition of samples into groups using one numeric column
@@ -13,7 +15,9 @@ Functions that operate on samples/observations
 
 ## Feature Operations
 
-Functions that operate on features/genes/variables
+Functions that operate on features/genes/variables. See the [RNA-seq
+Workflow](https://wbvguo.github.io/Rtoolset/reference/articles/rnaseq-workflow.md)
+vignette.
 
 - [`get_top_var_mat()`](https://wbvguo.github.io/Rtoolset/reference/get_top_var_mat.md)
   : get the the var_gene_list and topN (or top percent) most variable
@@ -24,7 +28,11 @@ Functions that operate on features/genes/variables
 
 ## Data Transformation
 
-Functions that transform entire matrices/dataframes
+Functions that transform entire matrices/dataframes. See the
+[RNA-seq](https://wbvguo.github.io/Rtoolset/reference/articles/rnaseq-workflow.md)
+and [DNA
+Methylation](https://wbvguo.github.io/Rtoolset/reference/articles/dnam-workflow.md)
+vignettes.
 
 - [`log_transform()`](https://wbvguo.github.io/Rtoolset/reference/log_transform.md)
   : perform log transformation with psuedo count
@@ -33,7 +41,9 @@ Functions that transform entire matrices/dataframes
 
 ## Utilities
 
-Helper functions for common tasks
+Helper functions for common tasks. See the [Utilities
+Guide](https://wbvguo.github.io/Rtoolset/reference/articles/utilities-guide.md)
+vignette.
 
 - [`closestMatch()`](https://wbvguo.github.io/Rtoolset/reference/closestMatch.md)
   : find the closest match of a string in a vector of strings
@@ -57,7 +67,9 @@ Helper functions for common tasks
 
 ## Visualization & Fun
 
-Games and visualizations
+Games and visualizations. See the
+[Visualization](https://wbvguo.github.io/Rtoolset/reference/articles/visualization.md)
+vignette.
 
 - [`play_2048()`](https://wbvguo.github.io/Rtoolset/reference/play_2048.md)
   : Play the 2048 game in the R console

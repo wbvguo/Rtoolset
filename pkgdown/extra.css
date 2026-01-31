@@ -7,20 +7,20 @@
 
 /* Base content styling */
 .contents {
-  font-size: 1.05em;
+  font-size: 1em;
   line-height: 1.5; /* Standard for body text readability */
 }
 
 /* Paragraphs - standard spacing for readability */
 .contents p {
-  font-size: 1.05em;
+  font-size: 1em;
   margin-top: 0.5em; /* Standard paragraph spacing */
   margin-bottom: 0.75em; /* Slightly more space below for readability */
 }
 
 /* Lists - balanced spacing */
 .contents ul, .contents ol {
-  font-size: 1.05em;
+  font-size: 1em;
   line-height: 1.6; /* Slightly more for lists */
   margin-top: 0.5em;
   margin-bottom: 0.75em;
@@ -68,11 +68,11 @@
 
 /* Reference pages */
 .ref-arguments dt {
-  font-size: 1.05em;
+  font-size: 1em;
 }
 
 .ref-arguments dd {
-  font-size: 1.05em;
+  font-size: 1em;
   line-height: 1.7;
 }
 
