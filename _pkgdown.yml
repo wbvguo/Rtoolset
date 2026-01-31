@@ -53,25 +53,33 @@ home:
 
 reference:
   - title: Sample Operations
-    desc: Functions that operate on samples/observations
+    desc: >
+      Functions that operate on samples/observations.
+      See the [Sample partition](articles/sample-partition.html) vignette.
     contents:
       - balanced_partition
       - balance_partition_core
   
   - title: Feature Operations
-    desc: Functions that operate on features/genes/variables
+    desc: >
+      Functions that operate on features/genes/variables.
+      See the [RNA-seq Workflow](articles/rnaseq-workflow.html) vignette.
     contents:
       - get_top_var_mat
       - filter_calcpm_dge
   
   - title: Data Transformation
-    desc: Functions that transform entire matrices/dataframes
+    desc: >
+      Functions that transform entire matrices/dataframes.
+      See the [RNA-seq](articles/rnaseq-workflow.html) and [DNA Methylation](articles/dnam-workflow.html) vignettes.
     contents:
       - log_transform
       - beta2M
   
   - title: Utilities
-    desc: Helper functions for common tasks
+    desc: >
+      Helper functions for common tasks.
+      See the [Utilities Guide](articles/utilities-guide.html) vignette.
     contents:
       - closestMatch
       - print_pval
@@ -84,7 +92,9 @@ reference:
       - check_packages
   
   - title: Visualization & Fun
-    desc: Games and visualizations
+    desc: >
+      Games and visualizations.
+      See the [Visualization](articles/visualization.html) vignette.
     contents:
       - play_2048
       - draw_heart

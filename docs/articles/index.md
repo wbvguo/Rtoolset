@@ -7,7 +7,7 @@
 ### Data Analysis
 
 - [Sample
-  Partitioning](https://wbvguo.github.io/Rtoolset/articles/sample-partition.md):
+  Partition](https://wbvguo.github.io/Rtoolset/articles/sample-partition.md):
 
 ### Genomics Workflows
 

@@ -1,11 +1,11 @@
-# Sample Partitioning
+# Sample Partition
 
 The
 [`balanced_partition()`](https://wbvguo.github.io/Rtoolset/reference/balanced_partition.md)
-function partitions data into balanced groups while minimizing variance
-in group means and standard deviations. This is useful for creating
-balanced experimental groups, cross-validation folds, or training/test
-splits.
+function partitions samples into balanced groups while minimizing
+variance in group means and standard deviations. This is useful for
+creating balanced experimental groups, cross-validation folds, or
+training/test splits.
 
 ## Overview
 
@@ -15,13 +15,17 @@ The partitioning algorithm minimizes:
 \text{loss} = \text{Gini}(\text{group\_means}) + \lambda \times \text{Gini}(\text{group\_SDs})
 ```
 
-where: - `Gini(group_means)` measures inequality in group means -
-`Gini(group_SDs)` measures inequality in group standard deviations -
-`lambda` controls the trade-off between balancing means vs. SDs
+where:
+
+- `Gini(group_means)` measures inequality in group means
+
+- `Gini(group_SDs)` measures inequality in group standard deviations
+
+- `lambda` controls the trade-off between balancing means vs. SDs
 
 ## Basic Usage
 
-### Simple Partitioning
+### Simple partition
 
 ``` r
 library(Rtoolset)
@@ -41,7 +45,7 @@ head(data)
 ```
 
 ``` r
-# Partition into 4 balanced groups using BW (body weight) as the score
+# Partition into 4 balanced groups based on BW (body weight)
 result <- balanced_partition(
   data = data,
   score_col = "BW",
@@ -63,12 +67,12 @@ head(result$assignment)
 ### With Custom Group Sizes
 
 ``` r
-# Specify exact group sizes (must sum to nrow(data))
+# Specify exact group sizes
 result <- balanced_partition(
   data = data,
   score_col = "BW",
   id_col = "NO.",
-  group_sizes = c(6, 6, 6, 6)  # Must sum to nrow(data)
+  group_sizes = c(6, 6, 6, 6)  # Must sum to the total number of samples
 )
 ```
 
@@ -97,7 +101,7 @@ result2 <- balanced_partition(
 )
 ```
 
-### Partitioning Methods
+### Partition Methods
 
 Two methods are available:
 
@@ -122,7 +126,7 @@ result2 <- balanced_partition(
 
 ### Output Options
 
-Generate plots and CSV files:
+Save plots and CSV files to a directory:
 
 ``` r
 result <- balanced_partition(
@@ -130,9 +134,9 @@ result <- balanced_partition(
   score_col = "BW",
   id_col = "NO.",
   K = 4,
-  output_plot = TRUE,      # Generate visualization
+  output_plot = TRUE,       # Generate visualization
   output_csv = FALSE,       # Set to TRUE to save CSV file
-  output_dir = NULL,       # Set to directory path to save files
+  output_dir = NULL,        # Set to directory path to save files
   file_prefix = "partition" # File prefix
 )
 ```
@@ -142,7 +146,7 @@ result <- balanced_partition(
 The function returns a list with several components:
 
 ``` r
-result <- balanced_partition(data, score_col = "BW", K = 4)
+result <- balanced_partition(data, score_col = "BW", K = 4, output_plot = TRUE)
 
 # Assignment: which group each sample belongs to
 result$assignment
@@ -190,8 +194,11 @@ result$group_sizes
 
 # Plot object (if output_plot = TRUE)
 result$plot
-#> NULL
+#> Bin width defaults to 1/30 of the range of the data. Pick better value with
+#> `binwidth`.
 ```
+
+![](sample-partition_files/figure-html/unnamed-chunk-7-1.png)
 
 ## Use Cases
 
@@ -210,12 +217,12 @@ groups <- balanced_partition(
 )
 ```
 
-### 2. Cross-Validation
+### 2. Data Splitting for Train/Test
 
-Create balanced CV folds:
+Create balanced splits for cross-validation or train/test sets:
 
 ``` r
-# Create 5-fold CV with balanced groups
+# Cross-validation: Create 5-fold CV with balanced groups
 cv_folds <- balanced_partition(
   data = data,
   score_col = "BW",
@@ -230,12 +237,8 @@ for (fold in 1:5) {
 }
 ```
 
-### 3. Training/Test Split
-
-Create balanced train/test splits:
-
 ``` r
-# 80/20 split (approximately 19 and 5 samples)
+# Training/Test Split: 80/20 split (approximately 19 and 5 samples)
 split <- balanced_partition(
   data = data,
   score_col = "BW",
@@ -264,7 +267,8 @@ approach:
 
 1.  Generate candidate partitions using the selected method
 2.  Evaluate each partition using the Gini-based loss function
-3.  Return the partition with the lowest loss
+3.  Iterate through candidates and return the partition with the lowest
+    loss
 
 The number of candidates (`B`) can be increased for better results at
 the cost of computation time.
@@ -274,4 +278,3 @@ the cost of computation time.
 - Function reference:
   [`?balanced_partition`](https://wbvguo.github.io/Rtoolset/reference/balanced_partition.md),
   [`?balance_partition_core`](https://wbvguo.github.io/Rtoolset/reference/balance_partition_core.md)
-- [Full documentation website](https://wbvguo.github.io/Rtoolset/)

@@ -5,12 +5,12 @@
 <div style="display: flex; gap: 30px; align-items: flex-start; margin-bottom: 1em;">
 <div style="flex: 1;">
 
-- **📊 Sample Operations**: Balanced partitioning
-- **🔬 Feature Operations**: Selection and filtering
-- **🔄 Data Transformation**: Common transformations
-- **💻 R Programming**: String matching, formatting, objects
-- **🔧 General Utilities**: File management, package installation
-- **🎮 Visualization & Fun**: Interesting visualizations and games
+- 📊 [Sample Operations](articles/sample-partition.html): Balanced partition
+- 🔬 [Feature Operations](articles/rnaseq-workflow.html): Selection and filtering
+- 🔄 [Data Transformation](articles/dnam-workflow.html): Common transformations
+- 💻 [R Programming](articles/utilities-guide.html): String matching, formatting, objects
+- 🔧 [General Utilities](articles/utilities-guide.html): File management, package installation
+- 🎮 [Visualization & Fun](articles/visualization.html): Interesting visualizations and games
 
 *and more to come...*
 
@@ -41,12 +41,14 @@ remotes::install_github("wbvguo/Rtoolset")
 ```r
 library(Rtoolset)
 
-# Example: Create an animated Christmas tree
+# Example: Create animated Christmas trees
 draw_xmas_tree_gif_panel()
 ```
+<img src="man/figures/xmas_panel.gif" alt="Xmas panel" width="800"/>
+
 
 ## Documentation
-1. **[Full Documentation Website](https://wbvguo.github.io/Rtoolset/)** - Browse all functions and articles (currently under construction)
+1. **[Full Documentation](https://wbvguo.github.io/Rtoolset/)** - Browse all functions and articles (currently under construction)
 
 2. **Vignettes** - Detailed tutorials (available after installation):
 
@@ -57,13 +59,6 @@ draw_xmas_tree_gif_panel()
 3. For function reference, use standard R help:
 
     ```r
-    ?draw_heart
+    ?closestMatch
     ```
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This package is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

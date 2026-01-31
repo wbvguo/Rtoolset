@@ -3,12 +3,24 @@
 **Rtoolset** is a miscellaneous tool set for R programming and data
 analysis, providing utility functions for:
 
-- **📊 Sample Operations**: Balanced partitioning
-- **🔬 Feature Operations**: Selection and filtering
-- **🔄 Data Transformation**: Common transformations
-- **💻 R Programming**: String matching, formatting, objects
-- **🔧 General Utilities**: File management, package installation
-- **🎮 Visualization & Fun**: Interesting visualizations and games
+- 📊 [Sample
+  Operations](https://wbvguo.github.io/Rtoolset/articles/sample-partition.md):
+  Balanced partition
+- 🔬 [Feature
+  Operations](https://wbvguo.github.io/Rtoolset/articles/rnaseq-workflow.md):
+  Selection and filtering
+- 🔄 [Data
+  Transformation](https://wbvguo.github.io/Rtoolset/articles/dnam-workflow.md):
+  Common transformations
+- 💻 [R
+  Programming](https://wbvguo.github.io/Rtoolset/articles/utilities-guide.md):
+  String matching, formatting, objects
+- 🔧 [General
+  Utilities](https://wbvguo.github.io/Rtoolset/articles/utilities-guide.md):
+  File management, package installation
+- 🎮 [Visualization &
+  Fun](https://wbvguo.github.io/Rtoolset/articles/visualization.md):
+  Interesting visualizations and games
 
 *and more to come…*
 
@@ -34,15 +46,16 @@ remotes::install_github("wbvguo/Rtoolset")
 ``` r
 library(Rtoolset)
 
-# Example: Create an animated Christmas tree
+# Example: Create animated Christmas trees
 draw_xmas_tree_gif_panel()
 ```
 
+![Xmas panel](reference/figures/xmas_panel.gif)
+
 ## Documentation
 
-1.  **[Full Documentation
-    Website](https://wbvguo.github.io/Rtoolset/)** - Browse all
-    functions and articles (currently under construction)
+1.  **[Full Documentation](https://wbvguo.github.io/Rtoolset/)** -
+    Browse all functions and articles (currently under construction)
 
 2.  **Vignettes** - Detailed tutorials (available after installation):
 
@@ -53,14 +66,5 @@ draw_xmas_tree_gif_panel()
 3.  For function reference, use standard R help:
 
     ``` r
-    ?draw_heart
+    ?closestMatch
     ```
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This package is licensed under the MIT License. See the
-[LICENSE](https://wbvguo.github.io/Rtoolset/LICENSE) file for details.

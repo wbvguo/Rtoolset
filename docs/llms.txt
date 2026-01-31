@@ -3,12 +3,24 @@
 **Rtoolset** is a miscellaneous tool set for R programming and data
 analysis, providing utility functions for:
 
-- **📊 Sample Operations**: Balanced partitioning
-- **🔬 Feature Operations**: Selection and filtering
-- **🔄 Data Transformation**: Common transformations
-- **💻 R Programming**: String matching, formatting, objects
-- **🔧 General Utilities**: File management, package installation
-- **🎮 Visualization & Fun**: Interesting visualizations and games
+- 📊 [Sample
+  Operations](https://wbvguo.github.io/Rtoolset/articles/sample-partition.md):
+  Balanced partition
+- 🔬 [Feature
+  Operations](https://wbvguo.github.io/Rtoolset/articles/rnaseq-workflow.md):
+  Selection and filtering
+- 🔄 [Data
+  Transformation](https://wbvguo.github.io/Rtoolset/articles/dnam-workflow.md):
+  Common transformations
+- 💻 [R
+  Programming](https://wbvguo.github.io/Rtoolset/articles/utilities-guide.md):
+  String matching, formatting, objects
+- 🔧 [General
+  Utilities](https://wbvguo.github.io/Rtoolset/articles/utilities-guide.md):
+  File management, package installation
+- 🎮 [Visualization &
+  Fun](https://wbvguo.github.io/Rtoolset/articles/visualization.md):
+  Interesting visualizations and games
 
 *and more to come…*
 
@@ -34,15 +46,16 @@ remotes::install_github("wbvguo/Rtoolset")
 ``` r
 library(Rtoolset)
 
-# Example: Create an animated Christmas tree
+# Example: Create animated Christmas trees
 draw_xmas_tree_gif_panel()
 ```
 
+![Xmas panel](reference/figures/xmas_panel.gif)
+
 ## Documentation
 
-1.  **[Full Documentation
-    Website](https://wbvguo.github.io/Rtoolset/)** - Browse all
-    functions and articles (currently under construction)
+1.  **[Full Documentation](https://wbvguo.github.io/Rtoolset/)** -
+    Browse all functions and articles (currently under construction)
 
 2.  **Vignettes** - Detailed tutorials (available after installation):
 
@@ -53,23 +66,16 @@ draw_xmas_tree_gif_panel()
 3.  For function reference, use standard R help:
 
     ``` r
-    ?draw_heart
+    ?closestMatch
     ```
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This package is licensed under the MIT License. See the
-[LICENSE](https://wbvguo.github.io/Rtoolset/LICENSE) file for details.
 
 # Package index
 
 ## Sample Operations
 
-Functions that operate on samples/observations
+Functions that operate on samples/observations. See the [Sample
+partition](https://wbvguo.github.io/Rtoolset/reference/articles/sample-partition.md)
+vignette.
 
 - [`balanced_partition()`](https://wbvguo.github.io/Rtoolset/reference/balanced_partition.md)
   : Balanced partition of samples into groups using one numeric column
@@ -80,7 +86,9 @@ Functions that operate on samples/observations
 
 ## Feature Operations
 
-Functions that operate on features/genes/variables
+Functions that operate on features/genes/variables. See the [RNA-seq
+Workflow](https://wbvguo.github.io/Rtoolset/reference/articles/rnaseq-workflow.md)
+vignette.
 
 - [`get_top_var_mat()`](https://wbvguo.github.io/Rtoolset/reference/get_top_var_mat.md)
   : get the the var_gene_list and topN (or top percent) most variable
@@ -91,7 +99,11 @@ Functions that operate on features/genes/variables
 
 ## Data Transformation
 
-Functions that transform entire matrices/dataframes
+Functions that transform entire matrices/dataframes. See the
+[RNA-seq](https://wbvguo.github.io/Rtoolset/reference/articles/rnaseq-workflow.md)
+and [DNA
+Methylation](https://wbvguo.github.io/Rtoolset/reference/articles/dnam-workflow.md)
+vignettes.
 
 - [`log_transform()`](https://wbvguo.github.io/Rtoolset/reference/log_transform.md)
   : perform log transformation with psuedo count
@@ -100,7 +112,9 @@ Functions that transform entire matrices/dataframes
 
 ## Utilities
 
-Helper functions for common tasks
+Helper functions for common tasks. See the [Utilities
+Guide](https://wbvguo.github.io/Rtoolset/reference/articles/utilities-guide.md)
+vignette.
 
 - [`closestMatch()`](https://wbvguo.github.io/Rtoolset/reference/closestMatch.md)
   : find the closest match of a string in a vector of strings
@@ -124,7 +138,9 @@ Helper functions for common tasks
 
 ## Visualization & Fun
 
-Games and visualizations
+Games and visualizations. See the
+[Visualization](https://wbvguo.github.io/Rtoolset/reference/articles/visualization.md)
+vignette.
 
 - [`play_2048()`](https://wbvguo.github.io/Rtoolset/reference/play_2048.md)
   : Play the 2048 game in the R console
@@ -148,7 +164,7 @@ Games and visualizations
 ### Data Analysis
 
 - [Sample
-  Partitioning](https://wbvguo.github.io/Rtoolset/articles/sample-partition.md):
+  Partition](https://wbvguo.github.io/Rtoolset/articles/sample-partition.md):
 
 ### Genomics Workflows
 

@@ -43,7 +43,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="articles/visualization.html">Visualization</a></li>
-    <li><a class="dropdown-item" href="articles/sample-partition.html">Sample Partitioning</a></li>
+    <li><a class="dropdown-item" href="articles/sample-partition.html">Sample Partition</a></li>
     <li><a class="dropdown-item" href="articles/rnaseq-workflow.html">Utility Functions for RNA-seq Analysis</a></li>
     <li><a class="dropdown-item" href="articles/dnam-workflow.html">Utility Functions for DNA Methylation Analysis</a></li>
     <li><a class="dropdown-item" href="articles/utilities-guide.html">Utility Functions Guide</a></li>
@@ -66,18 +66,12 @@
 <div style="display: flex; gap: 30px; align-items: flex-start; margin-bottom: 1em;">
 <div style="flex: 1;">
 <ul>
-<li>
-<strong>📊 Sample Operations</strong>: Balanced partitioning</li>
-<li>
-<strong>🔬 Feature Operations</strong>: Selection and filtering</li>
-<li>
-<strong>🔄 Data Transformation</strong>: Common transformations</li>
-<li>
-<strong>💻 R Programming</strong>: String matching, formatting, objects</li>
-<li>
-<strong>🔧 General Utilities</strong>: File management, package installation</li>
-<li>
-<strong>🎮 Visualization &amp; Fun</strong>: Interesting visualizations and games</li>
+<li>📊 <a href="articles/sample-partition.html">Sample Operations</a>: Balanced partition</li>
+<li>🔬 <a href="articles/rnaseq-workflow.html">Feature Operations</a>: Selection and filtering</li>
+<li>🔄 <a href="articles/dnam-workflow.html">Data Transformation</a>: Common transformations</li>
+<li>💻 <a href="articles/utilities-guide.html">R Programming</a>: String matching, formatting, objects</li>
+<li>🔧 <a href="articles/utilities-guide.html">General Utilities</a>: File management, package installation</li>
+<li>🎮 <a href="articles/visualization.html">Visualization &amp; Fun</a>: Interesting visualizations and games</li>
 </ul>
 <p><em>and more to come…</em></p>
 </div>
@@ -104,14 +98,15 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/wbvguo/Rtoolset" class="external-link">Rtoolset</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Example: Create an animated Christmas tree</span></span>
+<span><span class="co"># Example: Create animated Christmas trees</span></span>
 <span><span class="fu"><a href="reference/draw_xmas_tree_gif_panel.html">draw_xmas_tree_gif_panel</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/xmas_panel.gif" alt="Xmas panel" width="800"></p>
 </div>
 <div class="section level2">
 <h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
 </h2>
 <ol style="list-style-type: decimal">
-<li><p><strong><a href="https://wbvguo.github.io/Rtoolset/">Full Documentation Website</a></strong> - Browse all functions and articles (currently under construction)</p></li>
+<li><p><strong><a href="https://wbvguo.github.io/Rtoolset/">Full Documentation</a></strong> - Browse all functions and articles (currently under construction)</p></li>
 <li>
 <p><strong>Vignettes</strong> - Detailed tutorials (available after installation):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -120,19 +115,9 @@
 <li>
 <p>For function reference, use standard R help:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">?</span><span class="va">draw_heart</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">?</span><span class="va">closestMatch</span></span></code></pre></div>
 </li>
 </ol>
-</div>
-<div class="section level2">
-<h2 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
-</h2>
-<p>Contributions are welcome! Please feel free to submit a Pull Request.</p>
-</div>
-<div class="section level2">
-<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
-</h2>
-<p>This package is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for details.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
