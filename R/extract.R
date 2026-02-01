@@ -28,15 +28,27 @@ extract_params = function(func, verbose=FALSE) {
   msg_flag = TRUE
 
   for (arg_name in names(formals_list)) {
-    # If the default value is missing, assign NA
-    if (formals_list[[arg_name]] == "") {
+    # Get the default value for this argument
+    default_val = formals_list[[arg_name]]
+    
+    # Check if argument has no default (missing argument)
+    # Missing arguments are represented as empty symbols
+    if (missing(default_val) || 
+        (is.symbol(default_val) && nchar(as.character(default_val)) == 0)) {
+      # No default provided
       arg_value = NA
     } else {
-      # Evaluate the default value and assign it
-      arg_value = eval(formals_list[[arg_name]], envir = .GlobalEnv)
+      # Has a default value, evaluate it
+      tryCatch({
+        arg_value = eval(default_val, envir = .GlobalEnv)
+      }, error = function(e) {
+        arg_value <<- NA
+      })
     }
 
-    assign(arg_name, arg_value, envir = .GlobalEnv)
+    # Intentional assignment to global environment for debugging purposes
+    # This is documented in the function's @note section
+    assign(arg_name, arg_value, envir = .GlobalEnv)  # nolint: object_usage_linter
     if(verbose){
       if(msg_flag){message("default params:")}
       cat(paste0("  ", arg_name, " = ", arg_value, "\n"))

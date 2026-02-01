@@ -40,8 +40,8 @@
 .Renviron
 
 # pkgdown site
-docs/
-!docs/.nojekyll
+#docs/
+#!docs/.nojekyll
 
 # translation temp files
 po/*~
@@ -61,6 +61,10 @@ tests/
 .DS_Store
 .quarto
 man/figures/logo/*
+man/figures/save2pdf.pdf
 inst/doc
 vignettes/*.Rmd
+tmp/
+TODO
 
+/.quarto/

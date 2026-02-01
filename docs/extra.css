@@ -1,0 +1,100 @@
+/* Custom typography and spacing for all pkgdown pages */
+/* Based on typography best practices and pkgdown defaults */
+
+/* ============================================= */
+/* BASE STYLING                                  */
+/* ============================================= */
+
+/* Base content styling */
+.contents {
+  font-size: 1em;
+  line-height: 1.5; /* Standard for body text readability */
+}
+
+/* Paragraphs - standard spacing for readability */
+.contents p {
+  font-size: 1em;
+  margin-top: 0.5em; /* Standard paragraph spacing */
+  margin-bottom: 0.75em; /* Slightly more space below for readability */
+}
+
+/* Lists - balanced spacing */
+.contents ul, .contents ol {
+  font-size: 1em;
+  line-height: 1.6; /* Slightly more for lists */
+  margin-top: 0.5em;
+  margin-bottom: 0.75em;
+}
+
+.contents li {
+  margin-bottom: 0.4em; /* Space between list items */
+}
+
+/* Code */
+.contents code {
+  font-size: 1em;
+}
+
+/* Headings - balanced spacing with anchor support */
+/* padding-top: 60px is required for fixed navbar anchor links */
+/* margin-top: -50px creates 10px net space (balanced between default 20px and too tight) */
+.contents h1 {
+  font-size: 2.2em;
+  padding-top: 60px !important; /* Required for anchor links */
+  margin-top: -50px !important; /* Creates 10px net space above */
+  margin-bottom: 1em !important; /* Standard heading spacing */
+}
+
+.contents h2 {
+  font-size: 1.8em;
+  padding-top: 60px !important;
+  margin-top: -50px !important;
+  margin-bottom: 0.8em !important; /* Slightly less for h2 */
+}
+
+.contents h3 {
+  font-size: 1.5em;
+  padding-top: 60px !important;
+  margin-top: -50px !important;
+  margin-bottom: 0.6em !important;
+}
+
+.contents h4 {
+  font-size: 1.3em;
+  padding-top: 60px !important;
+  margin-top: -50px !important;
+  margin-bottom: 0.5em !important;
+}
+
+/* Reference pages */
+.ref-arguments dt {
+  font-size: 1em;
+}
+
+.ref-arguments dd {
+  font-size: 1em;
+  line-height: 1.7;
+}
+
+/* Code blocks - balanced spacing */
+.contents .sourceCode {
+  font-size: 0.95em;
+  margin-top: 0.5em;
+  margin-bottom: 0.75em;
+}
+
+.contents pre {
+  margin-top: 0.5em;
+  margin-bottom: 0.75em;
+}
+
+.contents .sourceCode pre {
+  margin-top: 0.5em;
+  margin-bottom: 0.75em;
+}
+
+/* Section spacing */
+.contents .section {
+  margin-bottom: 0.75em; /* Balanced section spacing */
+}
+

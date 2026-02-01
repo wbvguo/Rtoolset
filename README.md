@@ -8,60 +8,77 @@
 [![R-CMD-check](https://github.com/wbvguo/Rtoolset/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wbvguo/Rtoolset/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-A miscellaneous tool set for R programming and data analysis
+**Rtoolset** is a miscellaneous tool set for R programming and data
+analysis. It provides functions for sample and feature-level operations,
+data transformation, R programming helpers, and visualizations.
+
+The package currently provides utility functions for:
+
+- **📊 Sample Operations**: Balanced partitioning of
+  samples/observations
+- **🔬 Feature Operations**: Selection and filtering of
+  features/genes/variables
+- **🔄 Data Transformation**: Matrix transformations for omics data (log
+  transform, beta to M values)
+- **🔧 General Utilities**: String matching, formatting, file
+  management, package installation
+- **🎮 Visualization & Fun**: Interactive 2048 game, animated GIFs
+
+and more it to come…
 
 ## Installation
 
-You can install the development version of Rtoolset from
+You can install Rtoolset from
 [GitHub](https://github.com/wbvguo/Rtoolset.git) with:
 
 ``` r
-# install.packages("pak")
+# Using pak (recommended)
+install.packages("pak")
 pak::pak("wbvguo/Rtoolset")
+
+# Or using remotes
+install.packages("remotes")
+remotes::install_github("wbvguo/Rtoolset")
 ```
 
-## Usage
+## Quick Start
 
-check out the
-[vignette](https://htmlpreview.github.io/?https://github.com/wbvguo/Rtoolset/blob/main/vignettes/misc.html)
-page: <!-- 1. [Rtoolset]() -->
-<!-- 2. [RNAseq](https://wbvguo.github.io/Rtoolset/articles/RNAseq.html) -->
-<!-- 3. [Methylation](https://wbvguo.github.io/Rtoolset/articles/Methylation.html) -->
+``` r
+library(Rtoolset)
 
-<!-- ### folder & files -->
-<!-- ####  create a dir when it does not exist -->
-<!-- ```{r example} -->
-<!-- library(Rtoolset) -->
-<!-- mkdir("~/test/") -->
-<!-- ``` -->
-<!-- #### save to pdf -->
-<!-- ```{r} -->
-<!-- save2pdf(file = "./man/figures/save2pdf.pdf", width = 6, height = 6, overwrite = TRUE, -->
-<!--          plot_code = quote({ -->
-<!--            t = seq(0, 100, 1) -->
-<!--            plot(cos(t) + t*sin(t), sin(t) - t* cos(t), type = "l", asp = 1) -->
-<!--          })) -->
-<!-- ``` -->
-<!-- ### print -->
-<!-- ```{r} -->
-<!-- print_pval(0.0000123) -->
-<!-- ``` -->
-<!-- ```{r} -->
-<!-- vec2print(c("apple", "banana")) -->
-<!-- ``` -->
-<!-- ### match -->
-<!-- ```{r} -->
-<!-- closestMatch("DFNB31", c("DNMT1", "DTNBP1", "IFNB1")) -->
-<!-- ``` -->
+# Example: Create an animated Christmas tree
+draw_xmas_tree_gif_panel()
+```
 
-### more
+<img src="man/figures/xmas_panel.gif" alt="" width="100%" />
 
-under construction…
+## Documentation
 
-<!-- ## Legacy -->
-<!-- What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so: -->
-<!-- ```{r cars} -->
-<!-- summary(cars) -->
-<!-- ``` -->
-<!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. -->
-<!-- You can also embed plots. In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN. -->
+- **[Full Documentation Website](https://wbvguo.github.io/Rtoolset/)** -
+  Browse all functions and articles
+
+- **Vignettes** - Detailed tutorials (available after installation):
+
+  ``` r
+  browseVignettes("Rtoolset")
+  ```
+
+- For function reference, use standard R help:
+
+  ``` r
+  ?draw_heart
+  ```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This package is licensed under the MIT License. See the
+[LICENSE](LICENSE) file for details.
+
+------------------------------------------------------------------------
+
+For more information, visit the [GitHub
+repository](https://github.com/wbvguo/Rtoolset).

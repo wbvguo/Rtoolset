@@ -13,4 +13,4 @@ meth_df
 \description{
 A data.frame containing example methylation beta values.
 }
-\keyword{datasets}
+\keyword{internal}
