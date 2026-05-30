@@ -15,9 +15,29 @@ template:
 
 navbar:
   structure:
-    left: [logo, intro, reference, articles]
+    left: [logo, intro, reference, tutorials]
     right: [github]
   components:
+    tutorials:
+      text: Tutorials
+      menu:
+        - text: Data Visualization
+        - text: Visualization
+          href: articles/visualization.html
+        - text: -------
+        - text: Data Operations
+        - text: Sample Partition
+          href: articles/sample-partition.html
+        - text: -------
+        - text: Omics Analysis
+        - text: RNA-seq
+          href: articles/omics-rnaseq.html
+        - text: DNA Methylation
+          href: articles/omics-methylation.html
+        - text: -------
+        - text: Utilities
+        - text: Utility Functions Guide
+          href: articles/utilities-guide.html
     github:
       icon: fab fa-github fa-lg
       href: https://github.com/wbvguo/Rtoolset
@@ -32,24 +52,7 @@ home:
   readme: false
   index: index.md
   sidebar:
-    # structure: [links, license, community, citation, authors]
-    structure: [links, license, community]
-    components:
-      license:
-        title: License
-        text: "[MIT License](LICENSE.html)"
-      # citation:
-      #   title: Citation
-      #   text: |
-      #     If you use Rtoolset in your research, please cite:
-      #     ```
-      #     @Manual{rtoolset,
-      #       title = {Rtoolset: A Tool Set for R Programming and Data Analysis},
-      #       author = {Wenbin Guo},
-      #       year = {2025},
-      #       note = {R package version 0.1.0}
-      #     }
-      #     ```
+    html: pkgdown/home-sidebar.html
 
 reference:
   - title: Sample Operations
@@ -63,7 +66,7 @@ reference:
   - title: Feature Operations
     desc: >
       Functions that operate on features/genes/variables.
-      See the [RNA-seq Workflow](articles/rnaseq-workflow.html) vignette.
+      See the [Omics Overview](articles/omics-overview.html) vignette.
     contents:
       - get_top_var_mat
       - filter_calcpm_dge
@@ -71,7 +74,7 @@ reference:
   - title: Data Transformation
     desc: >
       Functions that transform entire matrices/dataframes.
-      See the [RNA-seq](articles/rnaseq-workflow.html) and [DNA Methylation](articles/dnam-workflow.html) vignettes.
+      See the [Omics Overview](articles/omics-overview.html) vignette.
     contents:
       - log_transform
       - beta2M
@@ -114,14 +117,14 @@ articles:
     contents:
       - sample-partition
   
-  - title: "Genomics Workflows"
+  - title: "Omics"
     navbar: ~
     contents:
-      - rnaseq-workflow
-      - dnam-workflow
+      - omics-overview
+      - omics-rnaseq
+      - omics-methylation
   
   - title: "Utilities"
     navbar: ~
     contents:
       - utilities-guide
-

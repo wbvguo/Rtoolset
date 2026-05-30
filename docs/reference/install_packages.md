@@ -36,13 +36,13 @@ install_packages(
   Logical; forwarded to
   [`utils::install.packages()`](https://rdrr.io/r/utils/install.packages.html)
   and
-  [`remotes::install_github()`](https://remotes.r-lib.org/reference/install_github.html).
+  [`remotes::install_github()`](https://rdrr.io/pkg/remotes/man/install_github.html).
   Default `TRUE`.
 
 - update:
 
   Logical; only used when `repo = "bioc"`. If `TRUE`, allow
-  [`BiocManager::install()`](https://bioconductor.github.io/BiocManager/reference/install.html)
+  [`BiocManager::install()`](https://rdrr.io/pkg/BiocManager/man/install.html)
   to update other Bioconductor packages. Default `FALSE` to keep
   installs reproducible.
 

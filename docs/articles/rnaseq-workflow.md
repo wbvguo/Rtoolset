@@ -289,9 +289,7 @@ which:
 
 The log transformation uses:
 
-``` math
-\text{log2(CPM + 1)}
-```
+$$\text{log2(CPM + 1)}$$
 
 where the pseudo-count of 1 prevents log(0) and stabilizes variance for
 low counts.

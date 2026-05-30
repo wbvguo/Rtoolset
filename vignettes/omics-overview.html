@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Omics Analysis</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Omics Analysis</h1>
+
+
+
+<p>This vignette is the landing page for omics-related utilities in
+<code>Rtoolset</code>. It provides a short overview of the available
+helpers and points to the more focused RNA-seq and DNA methylation
+tutorials.</p>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p><code>Rtoolset</code> currently includes lightweight helpers for a
+few common preprocessing tasks across omics workflows:</p>
+<ul>
+<li>filtering and normalizing RNA-seq count matrices</li>
+<li>log transformation and feature ranking</li>
+<li>converting DNA methylation beta values to M values</li>
+</ul>
+<p>These functions are designed to plug into larger workflows built with
+packages such as <code>edgeR</code> and <code>limma</code>.</p>
+</div>
+<div id="available-tutorials" class="section level2">
+<h2>Available Tutorials</h2>
+<div id="rna-seq-utilities" class="section level3">
+<h3>RNA-seq Utilities</h3>
+<p>The RNA-seq tutorial covers:</p>
+<ul>
+<li><code>filter_calcpm_dge()</code> for filtering and CPM
+calculation</li>
+<li><code>log_transform()</code> for custom transformations</li>
+<li><code>get_top_var_mat()</code> for selecting highly variable
+features</li>
+</ul>
+<p>See the <a href="omics-rnaseq.html">RNA-seq Utilities</a> vignette
+for examples and a suggested preprocessing workflow.</p>
+</div>
+<div id="dna-methylation-utilities" class="section level3">
+<h3>DNA Methylation Utilities</h3>
+<p>The DNA methylation tutorial focuses on:</p>
+<ul>
+<li><code>beta2M()</code> for converting beta values to M values</li>
+</ul>
+<p>See the <a href="omics-methylation.html">DNA Methylation
+Utilities</a> vignette for examples, the conversion formula, and
+downstream analysis notes.</p>
+</div>
+</div>
+<div id="function-map" class="section level2">
+<h2>Function Map</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>filter_calcpm_dge()</code></td>
+<td align="left">RNA-seq filtering, normalization, and CPM workflow</td>
+</tr>
+<tr class="even">
+<td align="left"><code>log_transform()</code></td>
+<td align="left">Custom log transformation of count-like data</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>get_top_var_mat()</code></td>
+<td align="left">Selecting highly variable features for exploration</td>
+</tr>
+<tr class="even">
+<td align="left"><code>beta2M()</code></td>
+<td align="left">Converting methylation beta values to M values</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="choosing-a-tutorial" class="section level2">
+<h2>Choosing a Tutorial</h2>
+<ul>
+<li>Start with <a href="omics-rnaseq.html">RNA-seq Utilities</a> if you
+are working with raw count matrices.</li>
+<li>Start with <a href="omics-methylation.html">DNA Methylation
+Utilities</a> if you are working with beta values from methylation
+assays.</li>
+<li>Return to this page when you want a compact overview of
+omics-related helpers in the package.</li>
+</ul>
+</div>
+<div id="see-also" class="section level2">
+<h2>See Also</h2>
+<ul>
+<li><a href="sample-partition.html">Sample Partition</a></li>
+<li><a href="utilities-guide.html">Utilities Guide</a></li>
+<li><a href="visualization.html">Visualization</a></li>
+</ul>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

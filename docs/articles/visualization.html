@@ -38,12 +38,19 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/visualization.html">Visualization</a></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-tutorials" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Tutorials</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-tutorials">
+<li><h6 class="dropdown-header" data-toc-skip>Data Visualization</h6></li>
+    <li><a class="dropdown-item" href="../articles/visualization.html">Visualization</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Data Operations</h6></li>
     <li><a class="dropdown-item" href="../articles/sample-partition.html">Sample Partition</a></li>
-    <li><a class="dropdown-item" href="../articles/rnaseq-workflow.html">Utility Functions for RNA-seq Analysis</a></li>
-    <li><a class="dropdown-item" href="../articles/dnam-workflow.html">Utility Functions for DNA Methylation Analysis</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Omics Analysis</h6></li>
+    <li><a class="dropdown-item" href="../articles/omics-rnaseq.html">RNA-seq</a></li>
+    <li><a class="dropdown-item" href="../articles/omics-methylation.html">DNA Methylation</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Utilities</h6></li>
     <li><a class="dropdown-item" href="../articles/utilities-guide.html">Utility Functions Guide</a></li>
   </ul>
 </li>
@@ -215,7 +222,7 @@ colors</li>
 requires the <code>brickr</code> package, which must be installed from
 GitHub:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ryantimpe/brickr"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/remotes/man/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ryantimpe/brickr"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="creating-animated-build-gifs">Creating Animated Build GIFs<a class="anchor" aria-label="anchor" href="#creating-animated-build-gifs"></a>

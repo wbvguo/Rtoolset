@@ -22,6 +22,7 @@
 </div>
 </div>
 
+
 ## Installation
 
 You can install Rtoolset from [GitHub](https://github.com/wbvguo/Rtoolset.git) with:
@@ -35,6 +36,7 @@ pak::pak("wbvguo/Rtoolset")
 install.packages("remotes")
 remotes::install_github("wbvguo/Rtoolset")
 ```
+
 
 ## Quick Start
 
@@ -61,4 +63,3 @@ draw_xmas_tree_gif_panel()
     ```r
     ?closestMatch
     ```
-

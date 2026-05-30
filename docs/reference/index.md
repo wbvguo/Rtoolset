@@ -15,8 +15,8 @@ vignette.
 
 ## Feature Operations
 
-Functions that operate on features/genes/variables. See the [RNA-seq
-Workflow](https://wbvguo.github.io/Rtoolset/reference/articles/rnaseq-workflow.md)
+Functions that operate on features/genes/variables. See the [Omics
+Overview](https://wbvguo.github.io/Rtoolset/reference/articles/omics-overview.md)
 vignette.
 
 - [`get_top_var_mat()`](https://wbvguo.github.io/Rtoolset/reference/get_top_var_mat.md)
@@ -28,11 +28,9 @@ vignette.
 
 ## Data Transformation
 
-Functions that transform entire matrices/dataframes. See the
-[RNA-seq](https://wbvguo.github.io/Rtoolset/reference/articles/rnaseq-workflow.md)
-and [DNA
-Methylation](https://wbvguo.github.io/Rtoolset/reference/articles/dnam-workflow.md)
-vignettes.
+Functions that transform entire matrices/dataframes. See the [Omics
+Overview](https://wbvguo.github.io/Rtoolset/reference/articles/omics-overview.md)
+vignette.
 
 - [`log_transform()`](https://wbvguo.github.io/Rtoolset/reference/log_transform.md)
   : perform log transformation with psuedo count

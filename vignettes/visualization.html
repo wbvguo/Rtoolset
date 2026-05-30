@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Visualization</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Visualization</h1>
+
+
+
+<p>Rtoolset provides several functions for creating beautiful
+visualizations, including animated GIFs, heart shapes, and LEGO mosaics.
+These tools are perfect for creating engaging presentations, social
+media content, or fun visualizations.</p>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>The visualization functions in Rtoolset include:</p>
+<ul>
+<li><strong>Animated Christmas Trees</strong>: Create festive animated
+GIFs with customizable styles</li>
+<li><strong>Heart Shape Visualizations</strong>: Generate 2D heart
+shapes and convert them to LEGO mosaics</li>
+<li><strong>Animated Build Sequences</strong>: Create step-by-step
+animations showing LEGO build processes</li>
+</ul>
+<p>All visualization functions support extensive customization including
+colors, dimensions, text, and animation parameters.</p>
+</div>
+<div id="animated-christmas-tree" class="section level2">
+<h2>Animated Christmas Tree</h2>
+<div id="basic-usage" class="section level3">
+<h3>Basic Usage</h3>
+<p>Create an animated Christmas tree GIF:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(Rtoolset)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co"># Create a simple animated tree</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">draw_xmas_tree_gif</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>  <span class="at">style =</span> <span class="st">&quot;pink&quot;</span>, </span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>  <span class="at">text =</span> <span class="st">&quot;Happy Holidays</span><span class="sc">\n</span><span class="st">Wenbin&quot;</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>  <span class="at">out_gif =</span> <span class="st">&quot;xmas.gif&quot;</span>, </span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>  <span class="at">show =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<div id="panel-style-animation" class="section level3">
+<h3>Panel-Style Animation</h3>
+<p>Create a panel-style animation showing multiple frames:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">draw_xmas_tree_gif_panel</span>()</span></code></pre></div>
+</div>
+<div id="available-styles" class="section level3">
+<h3>Available Styles</h3>
+<p>The <code>draw_xmas_tree_gif()</code> function supports multiple
+built-in styles:</p>
+<ul>
+<li><code>&quot;classic&quot;</code> or <code>1</code>: Classic Christmas
+colors</li>
+<li><code>&quot;warm cozy&quot;</code> or <code>2</code>: Warm, cozy colors</li>
+<li><code>&quot;vibrant&quot;</code> or <code>3</code>: Vibrant, bright
+colors</li>
+<li><code>&quot;winter frost&quot;</code> or <code>4</code>: Cool, frosty
+colors</li>
+<li><code>&quot;icy night&quot;</code> or <code>5</code>: Dark, icy colors</li>
+<li><code>&quot;monochrome&quot;</code> or <code>6</code>: Black and white</li>
+<li><code>&quot;pink&quot;</code> or <code>7</code>: Pink theme</li>
+<li><code>&quot;pastel&quot;</code> or <code>8</code>: Pastel colors</li>
+<li><code>&quot;electric&quot;</code> or <code>9</code>: Electric, neon
+colors</li>
+<li><code>&quot;olive earth&quot;</code> or <code>10</code>: Earth tones</li>
+</ul>
+</div>
+<div id="customization" class="section level3">
+<h3>Customization</h3>
+<p>You can customize various aspects of the tree:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">draw_xmas_tree_gif</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="at">style =</span> <span class="st">&quot;classic&quot;</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  <span class="at">text =</span> <span class="st">&quot;Merry Christmas</span><span class="sc">\n</span><span class="st">2025&quot;</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  <span class="at">text_x =</span> <span class="dv">0</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>  <span class="at">text_y =</span> <span class="fl">0.6</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  <span class="at">text_size =</span> <span class="dv">12</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>  <span class="at">n_frames =</span> <span class="dv">90</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>  <span class="at">fps =</span> <span class="dv">50</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">600</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">600</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>  <span class="at">out_gif =</span> <span class="st">&quot;custom_tree.gif&quot;</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+</div>
+<div id="heart-shape-visualizations" class="section level2">
+<h2>Heart Shape Visualizations</h2>
+<div id="creating-a-2d-heart" class="section level3">
+<h3>Creating a 2D Heart</h3>
+<p>Draw a simple 2D heart shape:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Draw and save a heart</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>heart <span class="ot">&lt;-</span> <span class="fu">draw_heart</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="at">out_png =</span> <span class="st">&quot;heart.png&quot;</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  <span class="at">fill =</span> <span class="st">&quot;pink&quot;</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">&quot;hotpink&quot;</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>  <span class="at">alpha =</span> <span class="fl">0.9</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">4</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">4</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>)</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co"># Or just return the ggplot object</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>heart_plot <span class="ot">&lt;-</span> <span class="fu">draw_heart</span>(<span class="at">out_png =</span> <span class="cn">NULL</span>, <span class="at">fill =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="fu">print</span>(heart_plot)</span></code></pre></div>
+</div>
+<div id="converting-to-lego-mosaic" class="section level3">
+<h3>Converting to LEGO Mosaic</h3>
+<p>Convert a heart image to a LEGO mosaic with build steps:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># Using a ggplot object</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>heart_plot <span class="ot">&lt;-</span> <span class="fu">draw_heart</span>(<span class="at">show =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>heart_steps <span class="ot">&lt;-</span> <span class="fu">draw_heart_step</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  <span class="at">heart_image =</span> heart_plot,</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  <span class="at">num_steps =</span> <span class="dv">6</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">50</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">50</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>)</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co"># Or using an image file</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>heart_steps <span class="ot">&lt;-</span> <span class="fu">draw_heart_step</span>(</span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>  <span class="at">image_path =</span> <span class="st">&quot;heart.png&quot;</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>  <span class="at">num_steps =</span> <span class="dv">6</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>)</span></code></pre></div>
+<p><strong>Note</strong>: The <code>draw_heart_step()</code> function
+requires the <code>brickr</code> package, which must be installed from
+GitHub:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ryantimpe/brickr&quot;</span>)</span></code></pre></div>
+</div>
+<div id="creating-animated-build-gifs" class="section level3">
+<h3>Creating Animated Build GIFs</h3>
+<p>Create an animated GIF showing the step-by-step build process:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Create steps first</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>heart_steps <span class="ot">&lt;-</span> <span class="fu">draw_heart_step</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  <span class="at">heart_image =</span> heart_plot,</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="at">num_steps =</span> <span class="dv">6</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>)</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co"># Then create the GIF</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="fu">draw_heart_gif</span>(</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>  <span class="at">heart_steps =</span> heart_steps,</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>  <span class="at">out_gif =</span> <span class="st">&quot;heart_animation.gif&quot;</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>  <span class="at">interval =</span> <span class="fl">0.5</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>  <span class="at">show =</span> <span class="cn">FALSE</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>)</span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="co"># Or do it all in one step</span></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="fu">draw_heart_gif</span>(</span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a>  <span class="at">image_path =</span> <span class="st">&quot;heart.png&quot;</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a>  <span class="at">out_gif =</span> <span class="st">&quot;heart_animation.gif&quot;</span>,</span>
+<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a>  <span class="at">num_steps =</span> <span class="dv">6</span>,</span>
+<span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a>  <span class="at">interval =</span> <span class="fl">0.5</span></span>
+<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+</div>
+<div id="use-cases" class="section level2">
+<h2>Use Cases</h2>
+<div id="holiday-greetings" class="section level3">
+<h3>1. Holiday Greetings</h3>
+<p>Create personalized holiday animations:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># Create a personalized Christmas tree</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">draw_xmas_tree_gif</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  <span class="at">style =</span> <span class="st">&quot;classic&quot;</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>  <span class="at">text =</span> <span class="st">&quot;Happy Holidays</span><span class="sc">\n</span><span class="st">2025&quot;</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  <span class="at">text_x =</span> <span class="dv">0</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>  <span class="at">text_y =</span> <span class="fl">0.6</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>  <span class="at">out_gif =</span> <span class="st">&quot;holiday_greeting.gif&quot;</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>  <span class="at">show =</span> <span class="cn">FALSE</span></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<div id="social-media-content" class="section level3">
+<h3>2. Social Media Content</h3>
+<p>Generate eye-catching visualizations for social media:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># Create a vibrant heart for Valentine&#39;s Day</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">draw_heart</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  <span class="at">out_png =</span> <span class="st">&quot;valentines_heart.png&quot;</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  <span class="at">fill =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">&quot;darkred&quot;</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">8</span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<div id="educational-demonstrations" class="section level3">
+<h3>3. Educational Demonstrations</h3>
+<p>Show step-by-step build processes:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># Create an educational GIF showing build steps</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>heart_steps <span class="ot">&lt;-</span> <span class="fu">draw_heart_step</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  <span class="at">image_path =</span> <span class="st">&quot;heart.png&quot;</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  <span class="at">num_steps =</span> <span class="dv">8</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">50</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">50</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>)</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="fu">draw_heart_gif</span>(</span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>  <span class="at">heart_steps =</span> heart_steps,</span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>  <span class="at">out_gif =</span> <span class="st">&quot;build_demo.gif&quot;</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>  <span class="at">interval =</span> <span class="fl">0.3</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>  <span class="at">show =</span> <span class="cn">FALSE</span></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+</div>
+<div id="tips-and-best-practices" class="section level2">
+<h2>Tips and Best Practices</h2>
+<ol style="list-style-type: decimal">
+<li><strong>File Formats</strong>:
+<ul>
+<li>Heart images are saved as PNG files</li>
+<li>Animated outputs are GIF files</li>
+<li>Use appropriate dimensions for your needs</li>
+</ul></li>
+<li><strong>Performance</strong>:
+<ul>
+<li>Larger dimensions and more frames increase rendering time</li>
+<li>For quick previews, use smaller dimensions</li>
+<li>For final outputs, use higher quality settings</li>
+<li>Caching is enabled for faster vignette rebuilds</li>
+</ul></li>
+<li><strong>Customization</strong>:
+<ul>
+<li>Experiment with different styles and colors</li>
+<li>Adjust text positioning and size for your needs</li>
+<li>Use <code>show = FALSE</code> when saving to files</li>
+</ul></li>
+<li><strong>LEGO Mosaics</strong>:
+<ul>
+<li>More steps provide finer granularity but longer build sequences</li>
+<li>Typical values are 4-8 steps</li>
+<li>The mosaic dimensions affect the final resolution</li>
+<li>Requires the <code>brickr</code> package from GitHub</li>
+</ul></li>
+<li><strong>Animation Settings</strong>:
+<ul>
+<li>Higher FPS creates smoother animations but larger file sizes</li>
+<li>More frames provide longer animations</li>
+<li>Balance quality with file size for web use</li>
+</ul></li>
+</ol>
+</div>
+<div id="see-also" class="section level2">
+<h2>See Also</h2>
+<ul>
+<li>Function reference: <code>?draw_xmas_tree_gif</code>,
+<code>?draw_heart</code>, <code>?draw_heart_step</code></li>
+<li><a href="https://wbvguo.github.io/Rtoolset/">Full documentation
+website</a></li>
+</ul>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
