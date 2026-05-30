@@ -1,23 +1,16 @@
 # Utility Functions Guide
 
-Rtoolset provides a collection of utility functions for common tasks in
-R programming and data analysis. These functions help streamline
-workflows, improve code readability, and handle common programming
-challenges.
-
 ## Overview
 
 This guide covers utility functions organized by category:
 
-- **String Matching**: Fuzzy string matching for handling typos and
+- String Matching: Fuzzy string matching for handling typos and
   variations
-- **Formatting & Printing**: Professional formatting for reports and
-  publications
-- **File & Directory Management**: Safe file operations and directory
+- Formatting & Printing: Formatting strings for reports and outputs
+- File & Directory Management: Safe file operations and directory
   creation
-- **Function Utilities**: Helper functions for debugging and data
-  structures
-- **Package Management**: Unified interface for installing packages from
+- Function Utilities: Helper functions for debugging and data structures
+- Package Management: Unified interface for installing packages from
   multiple sources
 
 ## String Matching
@@ -40,11 +33,19 @@ result
 #> [1] 2 3
 ```
 
-The function returns a list with: - Matched strings (may be multiple if
-tied) - Indices of matches in the vector
+The function returns a list with:
 
-**Use Cases**: - Matching gene names with typos - Finding similar
-identifiers - Fuzzy string matching
+- Matched strings (may be multiple if tied)
+
+- Indices of matches in the vector
+
+**Use Cases**:
+
+- Matching gene names with typos
+
+- Finding similar identifiers
+
+- Fuzzy string matching
 
 ## Formatting & Printing
 

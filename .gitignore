@@ -60,7 +60,6 @@ tests/
 .Rdata
 .DS_Store
 .quarto
-man/figures/logo/*
 man/figures/save2pdf.pdf
 inst/doc
 vignettes/*.Rmd

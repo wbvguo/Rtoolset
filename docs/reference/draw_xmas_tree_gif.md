@@ -108,7 +108,7 @@ An invisible list with elements:
 - animation:
 
   Animation object returned by
-  [`gganimate::animate()`](https://gganimate.com/reference/animate.html).
+  [`gganimate::animate()`](https://rdrr.io/pkg/gganimate/man/animate.html).
 
 - cfg:
 

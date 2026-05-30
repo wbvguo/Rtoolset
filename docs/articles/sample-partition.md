@@ -11,9 +11,7 @@ training/test splits.
 
 The partitioning algorithm minimizes:
 
-``` math
-\text{loss} = \text{Gini}(\text{group\_means}) + \lambda \times \text{Gini}(\text{group\_SDs})
-```
+$$\text{loss} = \text{Gini}\left( \text{group\_means} \right) + \lambda \times \text{Gini}\left( \text{group\_SDs} \right)$$
 
 where:
 
@@ -25,7 +23,7 @@ where:
 
 ## Basic Usage
 
-### Simple partition
+### Load Data
 
 ``` r
 library(Rtoolset)
@@ -43,6 +41,8 @@ head(data)
 #> 5 225  9.2 8.1 20.4
 #> 6 226  8.3 6.8 24.9
 ```
+
+### Simple Partition
 
 ``` r
 # Partition into 4 balanced groups based on BW (body weight)
@@ -114,7 +114,7 @@ result1 <- balanced_partition(
   method = "blocked_permute"
 )
 
-# Random assignment (more thorough search)
+# Random assignment (slower, more thorough search)
 result2 <- balanced_partition(
   data = data,
   score_col = "BW",
@@ -141,7 +141,7 @@ result <- balanced_partition(
 )
 ```
 
-## Understanding the Results
+## Output
 
 The function returns a list with several components:
 
@@ -252,8 +252,8 @@ test_data <- data[split$assignment$group == 2, ]
 ## Tips and Best Practices
 
 1.  **Data Quality**: Ensure your score column has no missing values
-2.  **Group Sizes**: For best results, groups should be roughly equal in
-    size
+2.  **Group Sizes**: For best results, groups size should not be too
+    small
 3.  **Lambda Tuning**: Start with `lambda = 1`, adjust based on your
     needs
 4.  **Reproducibility**: Use `seed` parameter for reproducible results

@@ -9,12 +9,13 @@
 - [Sample
   Partition](https://wbvguo.github.io/Rtoolset/articles/sample-partition.md):
 
-### Genomics Workflows
+### Omics
 
-- [Utility Functions for RNA-seq
-  Analysis](https://wbvguo.github.io/Rtoolset/articles/rnaseq-workflow.md):
-- [Utility Functions for DNA Methylation
-  Analysis](https://wbvguo.github.io/Rtoolset/articles/dnam-workflow.md):
+- [Omics
+  Overview](https://wbvguo.github.io/Rtoolset/articles/omics-overview.md):
+- [RNA-seq](https://wbvguo.github.io/Rtoolset/articles/omics-rnaseq.md):
+- [DNA
+  Methylation](https://wbvguo.github.io/Rtoolset/articles/omics-methylation.md):
 
 ### Utilities
 

@@ -18,3 +18,42 @@ mkdir = function(dir){
   return(invisible(dir))
 }
 
+#' Find a project root by walking upward
+#'
+#' Walk upward from an anchor path until a project marker file or directory is
+#' found.
+#'
+#' @param anchor A character string specifying the path to start from. If
+#'   `anchor` is a file path, the search starts from its parent directory.
+#' @param marker A character string specifying the project marker to search for.
+#'
+#' @return The absolute path to the directory containing `marker`.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' find_project_root(marker = "DESCRIPTION")
+#' }
+find_project_root <- function(anchor = ".", marker = "DESCRIPTION") {
+  stopifnot(is.character(anchor), length(anchor) == 1)
+  stopifnot(is.character(marker), length(marker) == 1)
+
+  anchor <- normalizePath(anchor, winslash = "/", mustWork = FALSE)
+  start <- if (dir.exists(anchor)) anchor else dirname(anchor)
+  start <- normalizePath(start, winslash = "/", mustWork = FALSE)
+
+  path <- start
+  repeat {
+    if (file.exists(file.path(path, marker))) {
+      return(path)
+    }
+
+    parent <- dirname(path)
+    if (identical(parent, path)) {
+      break
+    }
+    path <- parent
+  }
+
+  stop(sprintf("Could not find %s above %s", sQuote(marker), start), call. = FALSE)
+}

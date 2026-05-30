@@ -170,12 +170,10 @@ M_data <- beta2M(beta_data, alpha = 1e-6)
 
 The conversion from beta to M values uses the logit transformation:
 
-``` math
-M = \log_2\left(\frac{\beta + \alpha}{1 - \beta + \alpha}\right)
-```
+$$M = \log_{2}\left( \frac{\beta + \alpha}{1 - \beta + \alpha} \right)$$
 
-where: - $`\beta`$ is the beta value (0 to 1) - $`\alpha`$ is a small
-constant (default: 1e-6) to prevent log(0) - $`M`$ is the resulting M
+where: - $\beta$ is the beta value (0 to 1) - $\alpha$ is a small
+constant (default: 1e-6) to prevent log(0) - $M$ is the resulting M
 value
 
 ### Why M Values?
@@ -186,7 +184,7 @@ value
     range
 3.  **Linear Models**: Better suited for linear regression and
     differential analysis
-4.  **Symmetric Scale**: M values range from $`-\infty`$ to $`+\infty`$,
+4.  **Symmetric Scale**: M values range from $-\infty$ to $+\infty$,
     centered around 0
 
 ## Integration with Other Packages
