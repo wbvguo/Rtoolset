@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Rtoolset <a href="https://github.com/wbvguo/Rtoolset/"><img src="man/figures/Rtoolset.png" align="right" height="138" alt="Rtoolset website" /></a>
+# Rtoolset <a href="https://github.com/wbvguo/Rtoolset/"><img src="man/images/Rtoolset.png" align="right" height="138" alt="Rtoolset website" /></a>
 
 <!-- badges: start -->
 
@@ -50,7 +50,7 @@ library(Rtoolset)
 draw_xmas_tree_gif_panel()
 ```
 
-<img src="man/figures/xmas_panel.gif" alt="" width="100%" />
+<img src="man/images/xmas_panel.gif" alt="" width="100%" />
 
 ## Documentation
 

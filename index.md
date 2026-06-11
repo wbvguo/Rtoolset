@@ -17,7 +17,7 @@
 </div>
 <div style="flex: 0 0 160px; text-align: center;">
 
-<img src="man/figures/Rtoolset.png" alt="Rtoolset logo" style="max-width: 100%; height: auto; display: block; margin: -1em auto 0 auto;" />
+<img src="man/images/Rtoolset.png" alt="Rtoolset logo" style="max-width: 100%; height: auto; display: block; margin: -1em auto 0 auto;" />
 
 </div>
 </div>
@@ -46,7 +46,7 @@ library(Rtoolset)
 # Example: Create animated Christmas trees
 draw_xmas_tree_gif_panel()
 ```
-<img src="man/figures/xmas_panel.gif" alt="Xmas panel" width="800"/>
+<img src="man/images/xmas_panel.gif" alt="Xmas panel" width="800"/>
 
 
 ## Documentation

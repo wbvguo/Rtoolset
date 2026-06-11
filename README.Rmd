@@ -8,12 +8,12 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "man/figures/README-",
+  fig.path = "man/images/README-",
   out.width = "100%"
 )
 ```
 
-# Rtoolset <a href="https://github.com/wbvguo/Rtoolset/"><img src="man/figures/Rtoolset.png" align="right" height="138" alt="Rtoolset website" /></a>
+# Rtoolset <a href="https://github.com/wbvguo/Rtoolset/"><img src="man/images/Rtoolset.png" align="right" height="138" alt="Rtoolset website" /></a>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/wbvguo/Rtoolset/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wbvguo/Rtoolset/actions/workflows/R-CMD-check.yaml)
@@ -61,7 +61,7 @@ draw_xmas_tree_gif_panel()
 ```
 
 ```{r, echo = FALSE, out.width = "100%"}
-knitr::include_graphics("man/figures/xmas_panel.gif")
+knitr::include_graphics("man/images/xmas_panel.gif")
 ```
 
 

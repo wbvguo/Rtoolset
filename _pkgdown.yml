@@ -43,7 +43,7 @@ navbar:
       href: https://github.com/wbvguo/Rtoolset
       aria-label: GitHub repository
   logo:
-    image: man/figures/logo/Rtoolset.svg
+    image: man/images/logo/Rtoolset.svg
     href: index.html
     alt: Rtoolset logo
 

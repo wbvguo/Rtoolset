@@ -24,7 +24,7 @@ analysis, providing utility functions for:
 
 *and more to come…*
 
-![Rtoolset logo](reference/figures/Rtoolset.png)
+![Rtoolset logo](reference/images/Rtoolset.png)
 
 ## Installation
 
@@ -50,7 +50,7 @@ library(Rtoolset)
 draw_xmas_tree_gif_panel()
 ```
 
-![Xmas panel](reference/figures/xmas_panel.gif)
+![Xmas panel](reference/images/xmas_panel.gif)
 
 ## Documentation
 
