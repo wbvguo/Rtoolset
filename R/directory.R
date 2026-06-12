@@ -57,3 +57,54 @@ find_project_root <- function(anchor = ".", marker = "DESCRIPTION") {
 
   stop(sprintf("Could not find %s above %s", sQuote(marker), start), call. = FALSE)
 }
+
+#' Search for a file in a directory and its subdirectories
+#'
+#' Recursively search a directory tree for files matching a given name,
+#' optionally skipping selected subdirectories and/or hidden folders.
+#'
+#' @param name A character string specifying the file name to search for.
+#' @param path A character string specifying the directory to start the search
+#'   from. Defaults to the current working directory (`"."`).
+#' @param exclude_dir A character vector of directory names to skip during the
+#'   search. Matching is done on the directory's base name. Defaults to `NULL`.
+#' @param hidden Logical; whether to descend into hidden folders (those whose
+#'   name starts with a dot). Defaults to `FALSE`, i.e. hidden folders are
+#'   skipped.
+#'
+#' @return A character vector of paths (relative to `path`) for every match
+#'   found. Returns `character(0)` if no match is found.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' find_file("DESCRIPTION")
+#' find_file("test.R", path = "~/project", exclude_dir = c("renv", "node_modules"))
+#' }
+find_file <- function(name, path = ".", exclude_dir = NULL, hidden = FALSE) {
+  stopifnot(is.character(name), length(name) == 1)
+  stopifnot(is.character(path), length(path) == 1)
+  stopifnot(is.logical(hidden), length(hidden) == 1)
+  if (!dir.exists(path)) {
+    stop(sprintf("Directory does not exist: %s", path), call. = FALSE)
+  }
+
+  matches <- character(0)
+
+  walk <- function(dir) {
+    entries <- list.files(dir, all.files = hidden, no.. = TRUE, full.names = TRUE)
+    for (entry in entries) {
+      base <- basename(entry)
+      if (dir.exists(entry)) {
+        if (base %in% exclude_dir) next
+        if (!hidden && startsWith(base, ".")) next
+        walk(entry)
+      } else if (base == name) {
+        matches[[length(matches) + 1L]] <<- entry
+      }
+    }
+  }
+
+  walk(path)
+  matches
+}
